@@ -2,19 +2,14 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Header from '~/components/widgets/Header.astro';
-import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import { getPermalink } from '~/utils/permalinks';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import imageVliegshow from '~/assets/images/vliegshow.jpg';
 import imageWedstrijd from '~/assets/images/wedstrijd1.jpg';
 import imageHerdenking from '~/assets/images/4mei.jpeg';
-
 
 const metadata = {
   title: '60 jaar luchtvaartgroep Zeist',
@@ -67,13 +62,12 @@ const metadata = {
     tagline="luchtvaargroep zeist"
     image={{ src: '~/assets/images/wedstrijd2023.jpg', alt: 'AstroWind Hero Image' }}
     actions={[{ variant: 'primary', text: 'Hou me op de hoogte', href: getPermalink('/contact#form') }]}
-    
   >
     <Fragment slot="subtitle">
-      Dit jaar vieren we ons jubileum! We gaan allerlei luchtvaartactiviteiten organiseren en willen we je daarvoor graag uitnodigen.
+      Dit jaar vieren we ons jubileum! We gaan allerlei luchtvaartactiviteiten organiseren en willen we je daarvoor
+      graag uitnodigen.
     </Fragment>
-    
-  </Hero>
+  </Hero2>
 
   <!-- Content Widget **************** -->
 
@@ -108,13 +102,9 @@ const metadata = {
   >
     <Fragment slot="content">
       <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About me</h2>
-      <p>
-        Een echte scouting groep: maar wel met een luchtvaartsaus. En dat al 60 jaar!
-      </p>
+      <p>Een echte scouting groep: maar wel met een luchtvaartsaus. En dat al 60 jaar!</p>
       <br />
-      <p>
-        En nog meer tekst
-      </p>
+      <p>En nog meer tekst</p>
     </Fragment>
 
     <Fragment slot="bg">
@@ -122,14 +112,12 @@ const metadata = {
     </Fragment>
   </Content>
 
-
-
   <!-- Content Widget **************** -->
   <Content
     id="activiteiten"
     title="Activiteiten"
     subtitle="We pakken flink uit en nodigen je graag uit om mee te doen!"
-    />
+  />
 
   <Content
     id="dodenherdenking"
@@ -137,8 +125,7 @@ const metadata = {
     items={[
       {
         title: 'Description:',
-        description:
-          ''
+        description: '',
       },
       {
         title: 'Role:',
@@ -161,7 +148,17 @@ const metadata = {
         4 mei 2025<br /><span class="text-2xl">Dodenherdenking Werkhoven</span>
       </h3>
       <div>
-        In 2018 is een nieuwe traditie ontstaan en sindsdien nemen we elk jaar deel aan de herdenking op 4 mei, bij het monument van Régis Deleuze, achter kasteel Beverweerd. Aan deze herdenking neemt ook een detachement van de RAF-deel, van het laatste squadron waar Régis Deleuze gevlogen heeft. Als het weer het toelaat vindt er een eerbetoon plaats door middel van een fly-by van oude vliegtuigen van Vliegend Museum Seppe. Wij reiken de kransen en bloemstukken aan de notabelen, net als de collega-scouts op de Dam, en we leggen zelf het laatste bloemstuk.  Omdat dit jaar in het teken staan van 80 jaar herdenken wil de organisator groot uitpakken en na afloop van de ceremonie aan alle belangstellenden een kop koffie, thee of warme chocolademelk aanbieden. Wij verzorgen de uitreiking van de warme chocomel. We zoeken nog iemand die de spullen naar de plek van bestemming kan brengen (gasfles, brander, grote pan en chocomel enz). De huidige leden verzamelen om 16:00 en nemen dan de ceremonie door, we genieten om 17:00 een gezamenlijke maaltijd en de leden gaan met elkaar op de fiets naar Werkhoven. Ouders, opa’s en oma’s, leden en oud-leden van harte welkom (wel opgeven!).
+        In 2018 is een nieuwe traditie ontstaan en sindsdien nemen we elk jaar deel aan de herdenking op 4 mei, bij het
+        monument van Régis Deleuze, achter kasteel Beverweerd. Aan deze herdenking neemt ook een detachement van de
+        RAF-deel, van het laatste squadron waar Régis Deleuze gevlogen heeft. Als het weer het toelaat vindt er een
+        eerbetoon plaats door middel van een fly-by van oude vliegtuigen van Vliegend Museum Seppe. Wij reiken de
+        kransen en bloemstukken aan de notabelen, net als de collega-scouts op de Dam, en we leggen zelf het laatste
+        bloemstuk. Omdat dit jaar in het teken staan van 80 jaar herdenken wil de organisator groot uitpakken en na
+        afloop van de ceremonie aan alle belangstellenden een kop koffie, thee of warme chocolademelk aanbieden. Wij
+        verzorgen de uitreiking van de warme chocomel. We zoeken nog iemand die de spullen naar de plek van bestemming
+        kan brengen (gasfles, brander, grote pan en chocomel enz). De huidige leden verzamelen om 16:00 en nemen dan de
+        ceremonie door, we genieten om 17:00 een gezamenlijke maaltijd en de leden gaan met elkaar op de fiets naar
+        Werkhoven. Ouders, opa’s en oma’s, leden en oud-leden van harte welkom (wel opgeven!).
       </div>
     </Fragment>
 
@@ -296,5 +293,4 @@ const metadata = {
       },
     ]}
   />
-
 </Layout>
