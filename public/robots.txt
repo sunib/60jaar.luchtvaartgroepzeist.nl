@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /
+
+Sitemap: https://60jaar.luchtvaartgroepzeist.nl/sitemap.xml
