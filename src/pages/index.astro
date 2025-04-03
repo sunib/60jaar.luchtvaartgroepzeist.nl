@@ -11,9 +11,13 @@ import Steps from '~/components/widgets/Steps.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import { getPermalink } from '~/utils/permalinks';
 import Hero2 from '~/components/widgets/Hero2.astro';
+import imageVliegshow from '~/assets/images/vliegshow.jpg';
+import imageWedstrijd from '~/assets/images/wedstrijd1.jpg';
+import imageHerdenking from '~/assets/images/4mei.jpeg';
+
 
 const metadata = {
-  title: 'Personal Homepage Demo',
+  title: '60 jaar luchtvaartgroep Zeist',
 };
 ---
 
@@ -24,7 +28,23 @@ const metadata = {
       links={[
         { text: 'Home', href: '#' },
         { text: 'About', href: '#about' },
-        { text: 'Resume', href: '#resume' },
+        {
+          text: 'Activiteiten',
+          links: [
+            {
+              text: 'Dodenherdenking Werkhoven',
+              href: '#dodenherdenking',
+            },
+            {
+              text: 'Modelvliegwedstrijden XL',
+              href: '#vliegwedstrijd',
+            },
+            {
+              text: 'Sanicole Airshow',
+              href: '#vliegshow',
+            },
+          ],
+        },
         { text: 'Porfolio', href: '#porfolio' },
         { text: 'Blog', href: '#blog' },
       ]}
@@ -43,16 +63,14 @@ const metadata = {
 
   <Hero2
     id="hero"
-    title="60 jarig jubileum"
+    title="60 jaar!"
     tagline="luchtvaargroep zeist"
     image={{ src: '~/assets/images/wedstrijd2023.jpg', alt: 'AstroWind Hero Image' }}
-    actions={[{ variant: 'primary', text: 'Hire me', href: getPermalink('/contact#form') }]}
+    actions={[{ variant: 'primary', text: 'Hou me op de hoogte', href: getPermalink('/contact#form') }]}
     
   >
     <Fragment slot="subtitle">
-      I'm a Graphic Designer passionate about crafting visual stories. <br /> With 5 years of experience and a degree from
-      New York University's School of Design. I infuse vitality into brands and designs, transforming concepts into captivating
-      realities.
+      Dit jaar vieren we ons jubileum! We gaan allerlei luchtvaartactiviteiten organiseren en willen we je daarvoor graag uitnodigen.
     </Fragment>
     
   </Hero>
@@ -61,35 +79,29 @@ const metadata = {
 
   <Content
     id="about"
-    columns={3}
+    columns={2}
     items={[
       {
-        icon: 'tabler:brand-dribbble',
+        icon: 'tabler:plane-tilt',
         callToAction: {
-          target: '_blank',
-          text: 'Dribbble',
-          href: '#',
+          text: 'Vliegtuigen',
         },
       },
       {
-        icon: 'tabler:brand-behance',
+        icon: 'tabler:bike',
         callToAction: {
-          target: '_blank',
-          text: 'Behance',
-          href: '#',
+          text: 'Fietsen',
         },
       },
       {
-        icon: 'tabler:brand-pinterest',
+        icon: 'tabler:flame',
         callToAction: {
-          target: '_blank',
-          text: 'Pinterest',
-          href: '#',
+          text: 'Scouting',
         },
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      src: imageWedstrijd,
       alt: 'Colorful Image',
       loading: 'eager',
     }}
@@ -97,16 +109,12 @@ const metadata = {
     <Fragment slot="content">
       <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About me</h2>
       <p>
-        Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-        pixel becomes a brushstroke in the canvas of imagination.
+        Een echte scouting groep: maar wel met een luchtvaartsaus. En dat al 60 jaar!
       </p>
       <br />
       <p>
-        I find inspiration in the world around me, whether through the pages of a captivating novel, the intricate
-        details of typography, or the vibrant hues of nature during my outdoor escapades.
+        En nog meer tekst
       </p>
-      <br />
-      <p>If you're curious to dive deeper into my work, you can follow me:</p>
     </Fragment>
 
     <Fragment slot="bg">
@@ -114,105 +122,23 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Steps Widget ****************** -->
 
-  <Steps
-    id="resume"
-    title="Work experience"
-    items={[
-      {
-        title:
-          'Graphic Designer <br /> <span class="font-normal">ABC Design Studio, New York, NY</span> <br /> <span class="text-sm font-normal">2021 - Present</span>',
-        description: `Collaborate with clients to understand design requirements and objectives. <br /> Develop branding solutions, including logos, color palettes, and brand guidelines. <br /> Design marketing materials such as brochures, posters, and digital assets. <br /> Create visually appealing user interfaces for websites and applications.`,
-        icon: 'tabler:briefcase',
-      },
-      {
-        title:
-          'Junior Graphic Designer <br /> <span class="font-normal">XYZ Creative Agency, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">2018 - 2021</span>',
-        description: `Assisted senior designers in creating design concepts and visual assets. <br /> Contributed to the development of brand identities and marketing collateral. <br /> Collaborated with the marketing team to ensure consistent design across campaigns. <br /> Gained hands-on experience in various design software and tools.`,
-        icon: 'tabler:briefcase',
-      },
-    ]}
-    classes={{ container: 'max-w-3xl' }}
-  />
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    id="resume"
-    title="Education"
-    items={[
-      {
-        title: `Master of Fine Arts in Graphic Design <br /> <span class="font-normal">New York University's School of Design</span> <br /> <span class="text-sm font-normal">2018 - 2020</span>`,
-        icon: 'tabler:school',
-      },
-      {
-        title: `Bachelor of Arts in Graphic Design <br /> <span class="font-normal">New York University's School of Design</span> <br /> <span class="text-sm font-normal">2014 - 2018</span>`,
-        icon: 'tabler:school',
-      },
-    ]}
-    classes={{ container: 'max-w-3xl' }}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Skills"
-    subtitle="Discover the proficiencies that allow me to bring imagination to life through design."
-    columns={3}
-    defaultIcon="tabler:point-filled"
-    items={[
-      {
-        title: 'Graphic design',
-        description: 'Proficient in crafting visually appealing designs that convey messages effectively.',
-      },
-      {
-        title: 'Branding and identity',
-        description: 'Skilled at developing cohesive brand identities, including logos and brand guidelines.',
-      },
-      {
-        title: 'User-centered design',
-        description: 'Experienced in creating user-friendly interfaces and optimizing user experiences.',
-      },
-      {
-        title: 'Adobe Creative Suite',
-        description: 'Skilled in using Photoshop, Illustrator, and InDesign to create and edit visual elements.',
-      },
-      {
-        title: 'Typography',
-        description: 'Adept in selecting and manipulating typefaces to enhance design aesthetics.',
-      },
-      {
-        title: 'Color theory',
-        description: 'Proficient in using color to evoke emotions and enhance visual harmony.',
-      },
-      {
-        title: 'Print and digital design',
-        description: 'Knowledgeable in designing for both print materials and digital platforms.',
-      },
-      {
-        title: 'Attention to detail',
-        description: 'Diligent in maintaining precision and quality in all design work.',
-      },
-      {
-        title: 'Adaptability',
-        description: 'Quick to adapt to new design trends, technologies, and client preferences.',
-      },
-    ]}
-  />
 
   <!-- Content Widget **************** -->
+  <Content
+    id="activiteiten"
+    title="Activiteiten"
+    subtitle="We pakken flink uit en nodigen je graag uit om mee te doen!"
+    />
 
   <Content
-    id="porfolio"
-    title="Elevating visual narratives"
-    subtitle="Embark on a design journey that surpasses pixels, entering a realm of imagination. Explore my portfolio, where passion and creativity converge to shape enthralling visual narratives."
+    id="dodenherdenking"
     isReversed
     items={[
       {
         title: 'Description:',
         description:
-          'Developed a comprehensive brand identity for a tech startup, Tech Innovators, specializing in disruptive innovations. The goal was to convey a modern yet approachable image that resonated with both corporate clients and tech enthusiasts.',
+          ''
       },
       {
         title: 'Role:',
@@ -221,20 +147,22 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
-      alt: 'Tech Design Image',
+      src: imageHerdenking,
+      alt: 'Dodenherdenking Werkhoven',
     }}
     callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
+      text: 'Website Dodenherdenking Werkhoven',
       icon: 'tabler:chevron-right',
       href: '#',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 1: <br /><span class="text-2xl">Brand identity for tech innovators</span>
+        4 mei 2025<br /><span class="text-2xl">Dodenherdenking Werkhoven</span>
       </h3>
+      <div>
+        In 2018 is een nieuwe traditie ontstaan en sindsdien nemen we elk jaar deel aan de herdenking op 4 mei, bij het monument van Régis Deleuze, achter kasteel Beverweerd. Aan deze herdenking neemt ook een detachement van de RAF-deel, van het laatste squadron waar Régis Deleuze gevlogen heeft. Als het weer het toelaat vindt er een eerbetoon plaats door middel van een fly-by van oude vliegtuigen van Vliegend Museum Seppe. Wij reiken de kransen en bloemstukken aan de notabelen, net als de collega-scouts op de Dam, en we leggen zelf het laatste bloemstuk.  Omdat dit jaar in het teken staan van 80 jaar herdenken wil de organisator groot uitpakken en na afloop van de ceremonie aan alle belangstellenden een kop koffie, thee of warme chocolademelk aanbieden. Wij verzorgen de uitreiking van de warme chocomel. We zoeken nog iemand die de spullen naar de plek van bestemming kan brengen (gasfles, brander, grote pan en chocomel enz). De huidige leden verzamelen om 16:00 en nemen dan de ceremonie door, we genieten om 17:00 een gezamenlijke maaltijd en de leden gaan met elkaar op de fiets naar Werkhoven. Ouders, opa’s en oma’s, leden en oud-leden van harte welkom (wel opgeven!).
+      </div>
     </Fragment>
 
     <Fragment slot="bg">
@@ -245,6 +173,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
+    id="vliegwedstrijd"
     isReversed
     isAfterContent={true}
     items={[
@@ -259,7 +188,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      src: imageWedstrijd,
       alt: 'Art and Music Poster Image',
     }}
     callToAction={{
@@ -283,6 +212,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
+    id="vliegshow"
     isReversed
     isAfterContent={true}
     items={[
@@ -296,7 +226,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://plus.unsplash.com/premium_photo-1683288295841-782fa47e4770?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      src: imageVliegshow,
       alt: 'Fashion e-commerce Image',
     }}
     callToAction={{
@@ -350,33 +280,6 @@ const metadata = {
           alt: 'Laura Simmons Image',
         },
       },
-      {
-        testimonial: `We entrusted Sarah with revamping our website's user interface, and the results were astounding. Her intuitive design sense enhanced user experience, leading to a significant increase in engagement. She's a designer who truly understands the synergy of aesthetics and functionality.`,
-        name: 'Alex Foster',
-        job: 'Director of web services',
-        image: {
-          src: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Alex Foster Image',
-        },
-      },
-      {
-        testimonial: `She took our vision and elevated it beyond imagination. Her ability to capture brand essence and translate it into design is nothing short of remarkable. Working with her has been an inspiring journey.`,
-        name: 'Jessica Collins',
-        job: 'Product Manager',
-        image: {
-          src: 'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80',
-          alt: 'Jessica Collins Image',
-        },
-      },
-      {
-        testimonial: `Her ability to transform concepts into captivating visuals is nothing short of extraordinary. She took our event poster idea and turned it into a visual masterpiece that perfectly captured the essence of our festival. Sarah's dedication, creativity, and knack for delivering beyond expectations make her an invaluable asset to any project.`,
-        name: 'Michael Carter',
-        job: 'Event Coordinator',
-        image: {
-          src: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Michael Carter Image',
-        },
-      },
     ]}
   />
 
@@ -394,15 +297,4 @@ const metadata = {
     ]}
   />
 
-  <!-- BlogLatestPost Widget **************** -->
-
-  <BlogLatestPosts
-    id="blog"
-    title="Explore my insightful articles on my blog"
-    information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </BlogLatestPosts>
 </Layout>
