@@ -10,7 +10,7 @@ site:
 metadata:
   title:
     default: 60 jaar luchtvaartgroep Zeist
-  description: "\U2708FE0F Luchtvaartgroep Zeist viert haar 60e verjaardag!"
+  description: '\U2708FE0F Luchtvaartgroep Zeist viert haar 60e verjaardag!'
   robots:
     index: false
     follow: false
