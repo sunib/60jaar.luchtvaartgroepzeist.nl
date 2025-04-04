@@ -4,12 +4,12 @@ import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import { getPermalink } from '~/utils/permalinks';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import imageVliegshow from '~/assets/images/vliegshow.jpg';
 import imageWedstrijd from '~/assets/images/wedstrijd1.jpg';
 import imageHerdenking from '~/assets/images/4mei.jpeg';
+import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
   title: '60 jaar luchtvaartgroep Zeist',
@@ -38,10 +38,17 @@ const metadata = {
               text: 'Sanicole Airshow',
               href: '#vliegshow',
             },
+            {
+              text: 'Reunie',
+              href: '#reunie',
+              ariaLabel: 'tabler:help-hexagon',
+            },
           ],
         },
-        { text: 'Porfolio', href: '#porfolio' },
-        { text: 'Blog', href: '#blog' },
+        {
+          text: 'FAQ',
+          href: '#faq',
+        },
       ]}
       actions={[
         {
@@ -61,78 +68,19 @@ const metadata = {
     title="60 jaar!"
     tagline="luchtvaargroep zeist"
     image={{ src: '~/assets/images/wedstrijd2023.jpg', alt: 'AstroWind Hero Image' }}
-    actions={[{ variant: 'primary', text: 'Hou me op de hoogte', href: getPermalink('/contact#form') }]}
+    actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('/contact#form') }]}
   >
     <Fragment slot="subtitle">
-      Dit jaar vieren we ons jubileum! We gaan allerlei luchtvaartactiviteiten organiseren en willen we je daarvoor
-      graag uitnodigen.
+      Dit jaar bestaat de Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele,
+      fantastisch nieuwe activiteiten doen en natuurlijk een reünie houden. Schrijf je in en je krijgt het hele jaar
+      door uitnodigingen en updates, zodat jij mee kunt doen met wat je wilt!
     </Fragment>
   </Hero2>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    id="about"
-    columns={2}
-    items={[
-      {
-        icon: 'tabler:plane-tilt',
-        callToAction: {
-          text: 'Vliegtuigen',
-        },
-      },
-      {
-        icon: 'tabler:bike',
-        callToAction: {
-          text: 'Fietsen',
-        },
-      },
-      {
-        icon: 'tabler:flame',
-        callToAction: {
-          text: 'Scouting',
-        },
-      },
-    ]}
-    image={{
-      src: imageWedstrijd,
-      alt: 'Colorful Image',
-      loading: 'eager',
-    }}
-  >
-    <Fragment slot="content">
-      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About me</h2>
-      <p>Een echte scouting groep: maar wel met een luchtvaartsaus. En dat al 60 jaar!</p>
-      <br />
-      <p>En nog meer tekst</p>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-  <Content
-    id="activiteiten"
-    title="Activiteiten"
-    subtitle="We pakken flink uit en nodigen je graag uit om mee te doen!"
-  />
 
   <Content
     id="dodenherdenking"
     isReversed
-    items={[
-      {
-        title: 'Description:',
-        description: '',
-      },
-      {
-        title: 'Role:',
-        description:
-          'Led the entire branding process from concept to execution. Created a dynamic logo that symbolized innovation, selected a vibrant color palette, and I designed corporate stationery, website graphics, and social media assets.',
-      },
-    ]}
+    items={[]}
     image={{
       src: imageHerdenking,
       alt: 'Dodenherdenking Werkhoven',
@@ -158,7 +106,7 @@ const metadata = {
         verzorgen de uitreiking van de warme chocomel. We zoeken nog iemand die de spullen naar de plek van bestemming
         kan brengen (gasfles, brander, grote pan en chocomel enz). De huidige leden verzamelen om 16:00 en nemen dan de
         ceremonie door, we genieten om 17:00 een gezamenlijke maaltijd en de leden gaan met elkaar op de fiets naar
-        Werkhoven. Ouders, opa’s en oma’s, leden en oud-leden van harte welkom (wel opgeven!).
+        Werkhoven. Ouders, opa's en oma's, leden en oud-leden van harte welkom (wel opgeven!).
       </div>
     </Fragment>
 
@@ -167,23 +115,11 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
-
   <Content
     id="vliegwedstrijd"
     isReversed
     isAfterContent={true}
-    items={[
-      {
-        title: 'Description:',
-        description:
-          'Designed a captivating event poster for an art and music festival, "ArtWave Fusion," aiming to showcase the synergy between visual art and music genres.',
-      },
-      {
-        title: 'Role:',
-        description: `Translated the festival's creative theme into a visually striking poster. Used bold typography, vibrant colors, and abstract elements to depict the fusion of art and music. Ensured the design captured the festival's vibrant atmosphere.`,
-      },
-    ]}
+    items={[]}
     image={{
       src: imageWedstrijd,
       alt: 'Art and Music Poster Image',
@@ -197,8 +133,24 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 2: <br /><span class="text-2xl">Event poster for art & music festival</span>
+        12 juli 2025<br /><span class="text-2xl">Modelvliegwedstrijden XL</span>
       </h3>
+      <div>
+        Dit jaar organiseren wij een uitgebreide versie van de modelvliegwedstrijden waarbij naast de leden ook
+        oud-leden mee mogen doen.
+      </div>
+      <div>
+        Heb je als oud-lid nog een vliegtuig liggen of heb je zin om er weer een te bouwen? Doe mee of kom gezellig
+        langs!
+      </div><div>
+        Een lid bouwt 1 vliegtuig in een seizoen, dat wordt het vliegtuig waarmee je naar de Soesterduinen gaat voor de
+        modelvliegwedstrijd. Dit is elk jaar net voor de zomervakantie: De welpen en scouts en meestal ook explorers,
+        gaan gezamenlijk op de fiets naar de Soesterduinen. Daar vinden afstand-, tijd-, en doelvliegwedstrijden plaats
+        met hun zelfgebouwde Aviadelaar, Sonny, Soe en Bartje. De winnaar in elke vliegtuigcategorie van de dag krijgt
+        de wisselbeker. Als je mee wil doen, meld je aan en geef aan of je met de groep meefietst, of dat je per eigen
+        gelegenheid naar de Soesterduinen gaat. Heb je een bouwtekening van de Bartje nodig? En materiaal om er eentje
+        te bouwen? Laat even weten, voor 10 euro stellen we een bouwpakket voor je samen.
+      </div>
     </Fragment>
 
     <Fragment slot="bg">
@@ -206,20 +158,23 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
-
   <Content
     id="vliegshow"
-    isReversed
     isAfterContent={true}
     items={[
       {
-        title: 'Description:',
-        description: `Redesigned the e-commerce website for an eco-conscious fashion brand, GreenVogue. The objective was to align the brand's online presence with its sustainable ethos and improve user experience.`,
+        title: 'Samengevat',
+        description:
+          'Omdat er al enkele jaren geen vliegshow in Nederland wordt georganiseerd, willen we dit jaar naar Sanicole in België.',
       },
       {
-        title: 'Role:',
-        description: `Conducted a thorough analysis of the brand's values and customer base to inform the design direction. Created a visually appealing interface with intuitive navigation, highlighting sustainable materials, and integrating a user-friendly shopping experience.`,
+        title: 'Planning',
+        description: `We rijden op zaterdag 13 september naar Sanicole en zondagavond, de 14e komen we terug. Wij zijn bezig met het regelen van een overnachting.`,
+      },
+      {
+        title: 'Kosten',
+        description: `Volwassen niet-leden betalen ongeveer 100 euro per persoon.`,
+        icon: 'tabler:cash',
       },
     ]}
     image={{
@@ -230,12 +185,12 @@ const metadata = {
       target: '_blank',
       text: 'Go to the project',
       icon: 'tabler:chevron-right',
-      href: '#',
+      href: 'https://www.sanicole.com/nl/home-nl',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 3: <br /><span class="text-2xl">E-commerce website redesign for fashion brand</span>
+        13 & 14 september 2025<br /><span class="text-2xl">Vliegshow Belgie</span>
       </h3>
     </Fragment>
 
@@ -244,51 +199,68 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Testimonials Widget *********** -->
+  <Content
+    id="reunie"
+    isReversed
+    items={[]}
+    image={{
+      src: imageHerdenking,
+      alt: 'Reunie',
+    }}
+    callToAction={{
+      text: 'Website Dodenherdenking Werkhoven',
+      icon: 'tabler:chevron-right',
+      href: '#',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        4 oktober 2025<br /><span class="text-2xl">Reünie</span>
+      </h3>
+      <div>Hou de datum vast en kijk af en toe op deze site, we laten het je weten zodra er meer bekend is!</div>
+    </Fragment>
 
-  <Testimonials
-    title="Client testimonials"
-    subtitle="Discover what clients have to say about their experiences working with me."
-    testimonials={[
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <FAQs
+    id="faq"
+    title="Frequently Asked Questions"
+    items={[
       {
-        testimonial: `She took our vague concept and turned it into a visual masterpiece that perfectly aligned with our goals. Her attention to detail and ability to translate ideas into compelling visuals exceeded our expectations.`,
-        name: 'Mark Thompson',
-        job: 'Creative director',
-        image: {
-          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Mark Thompson Image',
-        },
+        title: 'Moet ik lid zijn om mee te doen?',
+        description:
+          'Als je afgelopen 60 jaar op enige manier verbonden bent geweest met onze groep dan ben je van harte welkom! Je bent ook welkom als je niet lid bent (of geweest).',
+        icon: 'tabler:chevrons-right',
       },
       {
-        testimonial: `She transformed our brand identity with her creative finesse, capturing our essence in every element. Her dedication and talent truly shine through her work.`,
-        name: 'Emily Martinez',
-        job: 'CEO',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80',
-          alt: 'Emily Martinez Image',
-        },
+        title: 'Waarom hebben jullie deze aparte website gemaakt?',
+        description: `Deze site voorzien we continu van de laatste informatie, via elke e-mail zullen we je hier weer naar toe leiden. Als alle activiteiten voorbij zijn zullen we deze website ook weer verwijderen.`,
+        icon: 'tabler:chevrons-right',
       },
       {
-        testimonial: `She has an uncanny ability to communicate emotions and stories. She crafted a logo for our NGO that not only represents our cause but also evokes empathy. Her professionalism and commitment make her a designer of exceptional caliber.`,
-        name: 'Laura Simmons',
-        job: 'Founder of an NGO',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Laura Simmons Image',
-        },
+        title: 'Moet ik elke dag op deze website kijken zodat ik niks mis?',
+        description:
+          'Belangerijke nieuwtjes of wijzigingen zullen we altijd óók via een e-mail verspreiden. Dus je hoeft zeker niet elke dag deze website te contorleren.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Waar kan ik me opgeven?',
+        description: `Op dit moment peilen we alleen nog interesse via onze mailinglijsten. Geef je vooral op en stuur deze website vooral door naar andere mensen die verbonden zijn geweest met onze groep afgelopen 60 jaar!`,
+        icon: 'tabler:chevrons-right',
       },
     ]}
   />
 
-  <!-- CallToAction Widget *********** -->
-
   <CallToAction
-    title="Let's create together"
-    subtitle="Ready to transform your vision into captivating designs?"
+    title="Mis niks!"
+    subtitle="Het helpt ons als je jezelf inschrijft voor onze nieuwsbrief, we weten dan beter hoeveel geinteresseerden er zijn"
     actions={[
       {
         variant: 'primary',
-        text: 'Hire me',
+        text: 'Schrijf me in',
         href: '/',
       },
     ]}
