@@ -161,12 +161,18 @@ export interface Testimonial {
   image?: string | unknown;
 }
 
+export interface RadioOption {
+  name: string;
+  value: string;
+}
+
 export interface Input {
   type: HTMLInputTypeAttribute;
   name: string;
   label?: string;
   autocomplete?: string;
   placeholder?: string;
+  radioOptions?: Array<RadioOption>
 }
 
 export interface Textarea {
@@ -271,6 +277,10 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
   callToAction?: string | CallToAction;
   image?: string | Image;
   isReversed?: boolean;
+}
+
+export interface SubscribeMailchimp extends Omit<Headline, 'classes'>, Widget {
+  formActionUrl: string;
 }
 
 export interface Content extends Omit<Headline, 'classes'>, Widget {

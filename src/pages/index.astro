@@ -9,6 +9,7 @@ import Hero2 from '~/components/widgets/Hero2.astro';
 import imageVliegshow from '~/assets/images/vliegshow.jpg';
 import imageWedstrijd from '~/assets/images/wedstrijd1.jpg';
 import imageHerdenking from '~/assets/images/4mei.jpeg';
+import SubscribeMailchimp from '~/components/widgets/SubscribeMailchimp.astro'
 import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
@@ -41,7 +42,6 @@ const metadata = {
             {
               text: 'Reunie',
               href: '#reunie',
-              ariaLabel: 'tabler:help-hexagon',
             },
           ],
         },
@@ -66,7 +66,7 @@ const metadata = {
   <Hero2
     id="hero"
     title="60 jaar!"
-    tagline="luchtvaargroep zeist"
+    tagline="Luchtvaargroep zeist"
     image={{ src: '~/assets/images/wedstrijd2023.jpg', alt: 'AstroWind Hero Image' }}
     actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('/contact#form') }]}
   >
@@ -80,7 +80,33 @@ const metadata = {
   <Content
     id="dodenherdenking"
     isReversed
-    items={[]}
+    items={[
+      {
+        title: 'Herdenken',
+        description: 'In 2018 is een nieuwe traditie ontstaan en sindsdien nemen we elk jaar deel aan de herdenking op 4 mei, bij het monument van Régis Deleuze, achter kasteel Beverweerd. Aan deze herdenking neemt ook een detachement van de RAF-deel, van het laatste squadron waar Régis Deleuze gevlogen heeft. Als het weer het toelaat vindt er een eerbetoon plaats door middel van een fly-by van oude vliegtuigen van Vliegend Museum Seppe.',
+        icon: 'tabler:number-80-small'
+      },
+      {
+        title: 'Onze rol',
+        description: 'Als scouting groep reiken wij de kransen en bloemstukken aan de notabelen, net als de collega-scouts op de Dam. We leggen zelf het laatste bloemstuk. Omdat dit jaar in het teken staan van 80 jaar herdenken wil de organisator groot uitpakken en na afloop van de ceremonie aan alle belangstellenden een kop koffie, thee of warme chocolademelk aanbieden. Wij verzorgen de uitreiking van de warme chocomel.',
+        icon: 'tabler:wheat'
+      },
+      {
+        title: 'Mee-eten mag',
+        description: 'Je bent om 17:00 welkom bij het <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/jrQQuuDper3YYS5R6">Pieter Dekker Groephuis</a> om te genieten van een gezamelijke maaltijd. Daarna vertrekken we per fiets naar Werkhoven.',
+        icon: 'tabler:tools-kitchen-2'
+      },
+      {
+        title: 'Locatie',
+        description: 'Parkeren kan langs de weg ter hoogte van kasteel Beverweerd. We verzamelen aan het begin van <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/2G7CDTqMpb6orhp58">"De Laan" (onverhard)</a> die leidt naar het monument. We lopen dan even voor achten gezamelijk en in stilte de 300 meter naar het monument.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Chauffeur gezocht',
+        description: 'We zoeken nog iemand die zware spullen naar de plek van bestemming kan brengen (gasfles, brander, grote pan en chocomel enz).',
+        icon: 'tabler:help',
+      },
+    ]}
     image={{
       src: imageHerdenking,
       alt: 'Dodenherdenking Werkhoven',
@@ -88,26 +114,13 @@ const metadata = {
     callToAction={{
       text: 'Website Dodenherdenking Werkhoven',
       icon: 'tabler:chevron-right',
-      href: '#',
+      href: 'https://regischarlesdeleuze.nl/',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         4 mei 2025<br /><span class="text-2xl">Dodenherdenking Werkhoven</span>
       </h3>
-      <div>
-        In 2018 is een nieuwe traditie ontstaan en sindsdien nemen we elk jaar deel aan de herdenking op 4 mei, bij het
-        monument van Régis Deleuze, achter kasteel Beverweerd. Aan deze herdenking neemt ook een detachement van de
-        RAF-deel, van het laatste squadron waar Régis Deleuze gevlogen heeft. Als het weer het toelaat vindt er een
-        eerbetoon plaats door middel van een fly-by van oude vliegtuigen van Vliegend Museum Seppe. Wij reiken de
-        kransen en bloemstukken aan de notabelen, net als de collega-scouts op de Dam, en we leggen zelf het laatste
-        bloemstuk. Omdat dit jaar in het teken staan van 80 jaar herdenken wil de organisator groot uitpakken en na
-        afloop van de ceremonie aan alle belangstellenden een kop koffie, thee of warme chocolademelk aanbieden. Wij
-        verzorgen de uitreiking van de warme chocomel. We zoeken nog iemand die de spullen naar de plek van bestemming
-        kan brengen (gasfles, brander, grote pan en chocomel enz). De huidige leden verzamelen om 16:00 en nemen dan de
-        ceremonie door, we genieten om 17:00 een gezamenlijke maaltijd en de leden gaan met elkaar op de fiets naar
-        Werkhoven. Ouders, opa's en oma's, leden en oud-leden van harte welkom (wel opgeven!).
-      </div>
     </Fragment>
 
     <Fragment slot="bg">
@@ -170,6 +183,7 @@ const metadata = {
       {
         title: 'Planning',
         description: `We rijden op zaterdag 13 september naar Sanicole en zondagavond, de 14e komen we terug. Wij zijn bezig met het regelen van een overnachting.`,
+        icon: 'tabler:calendar-check'
       },
       {
         title: 'Kosten',
@@ -183,7 +197,7 @@ const metadata = {
     }}
     callToAction={{
       target: '_blank',
-      text: 'Go to the project',
+      text: 'Website Sanicole',
       icon: 'tabler:chevron-right',
       href: 'https://www.sanicole.com/nl/home-nl',
     }}
@@ -237,23 +251,33 @@ const metadata = {
       },
       {
         title: 'Waarom hebben jullie deze aparte website gemaakt?',
-        description: `Deze site voorzien we continu van de laatste informatie, via elke e-mail zullen we je hier weer naar toe leiden. Als alle activiteiten voorbij zijn zullen we deze website ook weer verwijderen.`,
+        description: `Zodat je 'm gemakkelijk kunt delen met anderen die wij mogelijk gemist hebben! Ook werken we deze site continu bij met de laatst beschikbare informatie. Wees gerust we sturen je bij elke belangrijke wijziging natuurlijk óók een e-mail.`,
         icon: 'tabler:chevrons-right',
       },
       {
         title: 'Moet ik elke dag op deze website kijken zodat ik niks mis?',
-        description:
-          'Belangerijke nieuwtjes of wijzigingen zullen we altijd óók via een e-mail verspreiden. Dus je hoeft zeker niet elke dag deze website te contorleren.',
+        description: 'Belangerijke nieuwtjes of wijzigingen zullen we altijd óók via een e-mail verspreiden. Dus je hoeft niet elke dag deze website te contorleren (maar dat mag natuurlijk wel!)',
         icon: 'tabler:chevrons-right',
       },
       {
         title: 'Waar kan ik me opgeven?',
-        description: `Op dit moment peilen we alleen nog interesse via onze mailinglijsten. Geef je vooral op en stuur deze website vooral door naar andere mensen die verbonden zijn geweest met onze groep afgelopen 60 jaar!`,
+        description: `We hebben een aparte pagina die te bereiken is met de grote knop, hierop kun je ook per activiteit aangeven of je interesse hebt. Doe dit vooral zo snel mogelijk.`,
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Kan ik helpen?',
+        description: `We hebben veel e-mail adressen achterhaald: maar hoort zegt het voort! Deel deze website vooral met iedereen die verbonden is en/of was met onze groep!`,
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Wat heb ik opgegen / kan ik nog wijzigen?',
+        description: `Natuurlijk! Gebruik hetzelfde e-mail adres en je 'overschrijft' je vorige opgave. Je kunt ook via deze aparte opgave 'inloggen' en bekijken wat je eerder gekozen hebt.`,
         icon: 'tabler:chevrons-right',
       },
     ]}
   />
 
+  <SubscribeMailchimp></SubscribeMailchimp>
   <CallToAction
     title="Mis niks!"
     subtitle="Het helpt ons als je jezelf inschrijft voor onze nieuwsbrief, we weten dan beter hoeveel geinteresseerden er zijn"

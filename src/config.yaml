@@ -1,6 +1,6 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: 60 jaar luchtvaartgroep Zeist
+  site: 'https://60jaar.luchtvaartgroepzeist.nl'
   base: '/'
   trailingSlash: false
 
@@ -15,7 +15,7 @@ metadata:
     index: false
     follow: false
   openGraph:
-    site_name: AstroWind
+    site_name: 60 jaar luchtvaartgroep Zeist
     images:
       - url: '~/assets/images/logo.png'
         width: 1200
@@ -27,22 +27,22 @@ metadata:
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: nl
   textDirection: ltr
 
 apps:
   blog:
-    isEnabled: true
+    isEnabled: false
     postsPerPage: 6
 
     post:
-      isEnabled: true
+      isEnabled: false
       permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
         index: true
 
     list:
-      isEnabled: true
+      isEnabled: false
       pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
@@ -51,7 +51,7 @@ apps:
       isEnabled: true
       pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
       robots:
-        index: true
+        index: false
 
     tag:
       isEnabled: true
