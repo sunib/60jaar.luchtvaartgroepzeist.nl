@@ -1,0 +1,46 @@
+---
+import type { Contact as Props } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  inputs,
+  textarea,
+  disclaimer,
+  button,
+  description,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<div id="mc_embed_shell">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+
+<div id="mc_embed_signup">
+  <form action="https://luchtvaartgroepzeist.us15.list-manage.com/subscribe/post?u=db5d91e69bd533f2922009486&amp;id=26d45d657d&amp;f_id=00caa6e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+      <div id="mc_embed_signup_scroll"><h2>Subscribe</h2>
+          <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+          <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div><div class="mc-field-group"><label for="mce-FNAME">First Name </label><input type="text" name="FNAME" class=" text" id="mce-FNAME" value=""></div><div class="mc-field-group"><label for="mce-LNAME">Last Name </label><input type="text" name="LNAME" class=" text" id="mce-LNAME" value=""></div><div class="mc-field-group"><label for="mce-MOBIEL">Mobiele nummer </label><input type="number" name="MOBIEL" class=" number" id="mce-MOBIEL" value=""><span id="mce-MOBIEL-HELPERTEXT" class="helper_text">(optioneel: eventueel handig bij vragen of op de dag zelf)</span></div><div class="mc-field-group input-group"><strong>Herdenking (4 mei) </strong><ul><li><input type="radio" name="HERDENKING" id="mce-HERDENKING0" value="Geen interesse"><label for="mce-HERDENKING0">Geen interesse</label></li><li><input type="radio" name="HERDENKING" id="mce-HERDENKING1" value="Ik weet het nog niet, hou me op de hoogte"><label for="mce-HERDENKING1">Ik weet het nog niet, hou me op de hoogte</label></li><li><input type="radio" name="HERDENKING" id="mce-HERDENKING2" value="Ik kom + eten om 17:00"><label for="mce-HERDENKING2">Ik kom + eten om 17:00</label></li><li><input type="radio" name="HERDENKING" id="mce-HERDENKING3" value="Ik kom"><label for="mce-HERDENKING3">Ik kom</label></li></ul></div><div class="mc-field-group input-group"><strong>Modelvliegwedstrijden XL (12 juli) </strong><ul><li><input type="radio" name="WEDSTRIJD" id="mce-WEDSTRIJD0" value="Geen interesse"><label for="mce-WEDSTRIJD0">Geen interesse</label></li><li><input type="radio" name="WEDSTRIJD" id="mce-WEDSTRIJD1" value="Ik weet het nog niet, hou me op de hoogte"><label for="mce-WEDSTRIJD1">Ik weet het nog niet, hou me op de hoogte</label></li><li><input type="radio" name="WEDSTRIJD" id="mce-WEDSTRIJD2" value="Ik kom kijken"><label for="mce-WEDSTRIJD2">Ik kom kijken</label></li><li><input type="radio" name="WEDSTRIJD" id="mce-WEDSTRIJD3" value="Ik doe mee met eigen vliegtuig"><label for="mce-WEDSTRIJD3">Ik doe mee met eigen vliegtuig</label></li><li><input type="radio" name="WEDSTRIJD" id="mce-WEDSTRIJD4" value="Ik doe mee + bouwpakket (10 euro)"><label for="mce-WEDSTRIJD4">Ik doe mee + bouwpakket (10 euro)</label></li></ul></div><div class="mc-field-group input-group"><strong>Vliegshow Sanicol (13 &amp;amp; 14 september) </strong><ul><li><input type="radio" name="MMERGE8" id="mce-MMERGE80" value="Geen interesse"><label for="mce-MMERGE80">Geen interesse</label></li><li><input type="radio" name="MMERGE8" id="mce-MMERGE81" value="Ik weet het nog niet, hou met op de hoogte"><label for="mce-MMERGE81">Ik weet het nog niet, hou met op de hoogte</label></li><li><input type="radio" name="MMERGE8" id="mce-MMERGE82" value="Ik wil mee!"><label for="mce-MMERGE82">Ik wil mee!</label></li></ul></div><div class="mc-field-group input-group"><strong>Reünie (4 oktober) </strong><ul><li><input type="radio" name="REUNIE" id="mce-REUNIE0" value="Geen interesse"><label for="mce-REUNIE0">Geen interesse</label></li><li><input type="radio" name="REUNIE" id="mce-REUNIE1" value="Ik weet het nog niet, hou me op de hoogte"><label for="mce-REUNIE1">Ik weet het nog niet, hou me op de hoogte</label></li><li><input type="radio" name="REUNIE" id="mce-REUNIE2" value="Ik kom!"><label for="mce-REUNIE2">Ik kom!</label></li></ul></div><div class="mc-field-group"><label for="mce-OPMERKING">Opmerkingen </label><input type="text" name="OPMERKING" class=" text" id="mce-OPMERKING" value=""><span id="mce-OPMERKING-HELPERTEXT" class="helper_text">Bv. je komt met meer dan 1 persoon, je hebt vragen etc.</span></div>
+      <div id="mce-responses" class="clear foot">
+          <div class="response" id="mce-error-response" style="display: none;"></div>
+          <div class="response" id="mce-success-response" style="display: none;"></div>
+      </div>
+  <div aria-hidden="true" style="position: absolute; left: -5000px;">
+      /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
+      <input type="text" name="b_db5d91e69bd533f2922009486_26d45d657d" tabindex="-1" value="">
+  </div>
+      <div class="optionalParent">
+          <div class="clear foot">
+              <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+              <p style="margin: 0px auto;"><a href="http://eepurl.com/i8FIxs" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
+          </div>
+      </div>
+  </div>
+</form>
+</div>
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[6]='MOBIEL';ftypes[6]='number';fnames[3]='HERDENKING';ftypes[3]='radio';fnames[7]='WEDSTRIJD';ftypes[7]='radio';fnames[8]='MMERGE8';ftypes[8]='radio';fnames[4]='REUNIE';ftypes[4]='radio';fnames[5]='OPMERKING';ftypes[5]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
