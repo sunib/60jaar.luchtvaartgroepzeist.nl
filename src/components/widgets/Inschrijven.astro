@@ -12,6 +12,7 @@ const {
   textarea,
   button,
   description,
+  actionUrl,
 
   id,
   isDark = false,
@@ -27,7 +28,7 @@ const {
     inputs && (
       <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
         <FormContainer
-          actionUrl="https://luchtvaartgroepzeist.us15.list-manage.com/subscribe/post?u=db5d91e69bd533f2922009486&id=26d45d657d&f_id=00caa6e1f0"
+          actionUrl={actionUrl}
           inputs={inputs}
           textarea={textarea}
           button={button}
