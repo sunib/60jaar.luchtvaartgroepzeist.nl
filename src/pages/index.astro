@@ -3,13 +3,13 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Header from '~/components/widgets/Header.astro';
 import Content from '~/components/widgets/Content.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import imageVliegshow from '~/assets/images/vliegshow.jpg';
 import imageWedstrijd from '~/assets/images/wedstrijd1.jpg';
 import imageHerdenking from '~/assets/images/4mei.jpeg';
 import FAQs from '~/components/widgets/FAQs.astro';
+import Inschrijven from '~/components/widgets/Inschrijven.astro';
 
 const metadata = {
   title: '60 jaar luchtvaartgroep Zeist',
@@ -22,7 +22,6 @@ const metadata = {
     <Header
       links={[
         { text: 'Home', href: '#' },
-        { text: 'About', href: '#about' },
         {
           text: 'Activiteiten',
           links: [
@@ -52,7 +51,7 @@ const metadata = {
       actions={[
         {
           text: 'Schrijf je in!',
-          href: '/inschrijven',
+          href: '#inschrijven',
         },
       ]}
       isSticky
@@ -60,14 +59,12 @@ const metadata = {
     />
   </Fragment>
 
-  <!-- Hero2 Widget ******************* -->
-
   <Hero2
     id="hero"
     title="60 jaar!"
     tagline="Luchtvaargroep zeist"
     image={{ src: '~/assets/images/wedstrijd2023.jpg', alt: 'AstroWind Hero Image' }}
-    actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('/inschrijven') }]}
+    actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('#inschrijven') }]}
   >
     <Fragment slot="subtitle">
       Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele,
@@ -275,22 +272,86 @@ const metadata = {
         icon: 'tabler:chevrons-right',
       },
       {
-        title: 'Wat heb ik opgegen / kan ik nog wijzigen?',
-        description: `Natuurlijk! Gebruik hetzelfde e-mail adres en je 'overschrijft' je vorige opgave. Je kunt ook via deze aparte opgave 'inloggen' en bekijken wat je eerder gekozen hebt.`,
+        title: 'Wat heb ik opgegeven / kan ik nog wijzigen?',
+        description: `Natuurlijk! Gebruik hetzelfde e-mail adres en je 'overschrijft' je vorige opgave. Je kunt ook <a class="text-blue-600 underline dark:text-muted" href='http://eepurl.com/i8FGCk'>hier 'inloggen' via je e-mail adres</a> en bekijken wat je eerder gekozen hebt.`,
         icon: 'tabler:chevrons-right',
       },
     ]}
   />
 
-  <CallToAction
-    title="Schrijf jezelf in"
-    subtitle="Help ons door jezelf vandaag nog in te schrijven. Je kunt 'm altijd wijzigen, en je kunt óók aangeven dat je het nog niet precies weet."
-    actions={[
+  <Inschrijven
+    id="inschrijven"
+    title="Schrijf je hieronder in! ✏️"
+    subtitle="Je voorkeuren zijn wijzigbaar. Het helpt ons te weten welke activiteiten je interesse hebben. Zo kunnen we jou en anderen gericht informeren."
+    inputs={[
       {
-        variant: 'primary',
-        text: 'Laat maar zien',
-        href: '/inschrijven',
+        type: 'email',
+        name: 'EMAIL',
+        label: 'E-mail adres',
+      },
+      {
+        type: 'text',
+        name: 'FNAME',
+        label: 'Voornaam',
+      },
+      {
+        type: 'text',
+        name: 'LNAME',
+        label: 'Achternaam',
+      },
+      {
+        type: 'text',
+        name: 'MOBIEL',
+        label: 'Mobiele nummer',
+      },
+      {
+        type: 'radio',
+        name: 'HERDENKING',
+        label: 'Herdenking (4 mei)',
+        radioOptions: [
+          'Geen interesse',
+          'Ik weet het nog niet, hou me op de hoogte',
+          'Ik kom + eten om 17:00',
+          'Ik kom',
+        ],
+      },
+      {
+        type: 'radio',
+        name: 'WEDSTRIJD',
+        label: 'Modelvliegwedstrijden XL (12 juli)',
+        radioOptions: [
+          'Geen interesse',
+          'Ik weet het nog niet, hou me op de hoogte',
+          'Ik kom kijken',
+          'Ik doe mee met eigen vliegtuig',
+          'Ik doe mee + ontvang graag een bouwpakket (10 euro)',
+        ],
+      },
+      {
+        type: 'radio',
+        name: 'VLIEGSHOW',
+        label: 'Vliegshow Sanicol (13 & 14 september)',
+        radioOptions: ['Geen interesse', 'Ik weet het nog niet, hou me op de hoogte', 'Ik ga mee'],
+      },
+      {
+        type: 'radio',
+        name: 'REUNIE',
+        label: 'Reünie (4 oktober)',
+        radioOptions: ['Geen interesse', 'Ik weet het nog niet, hou me op de hoogte', 'Ik kom'],
       },
     ]}
-  />
+    button="Schrijf me nu in!"
+    textarea={{
+      name: 'OPMERKING',
+      placeholder:
+        'Optioneel: bv. je komt met meerdere gezinsleden, je zit met vragen of je wilt gewoon iets vertellen',
+      label: 'Opmerkingen',
+    }}
+    description="We sturen direct een (automatische!) bevestiging op het opgegeven e-mail adres. Opmerkingen bekijken we zeker, maar dit kan iets meer tijd kosten."
+  >
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Inschrijven>
+
 </Layout>
