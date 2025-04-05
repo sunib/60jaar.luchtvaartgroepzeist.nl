@@ -161,18 +161,13 @@ export interface Testimonial {
   image?: string | unknown;
 }
 
-export interface RadioOption {
-  name: string;
-  value: string;
-}
-
 export interface Input {
   type: HTMLInputTypeAttribute;
   name: string;
   label?: string;
   autocomplete?: string;
   placeholder?: string;
-  radioOptions?: Array<RadioOption>
+  radioOptions?: Array<string>;
 }
 
 export interface Textarea {
@@ -211,6 +206,7 @@ export interface Collapse {
 }
 
 export interface Form {
+  actionUrl: string;
   inputs?: Array<Input>;
   textarea?: Textarea;
   disclaimer?: Disclaimer;
@@ -293,4 +289,4 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   callToAction?: CallToAction;
 }
 
-export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
+export interface Inschrijven extends Omit<Headline, 'classes'>, Form, Widget {}

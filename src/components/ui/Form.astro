@@ -2,10 +2,10 @@
 import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
-const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
+const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = Astro.props;
 ---
 
-<form>
+<form action={actionUrl} method="post">
   {
     inputs &&
       inputs.map(
@@ -19,17 +19,17 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
               )}
 
               {radioOptions ? (
-                radioOptions?.map((t, i) => (
+                radioOptions?.map((v, i) => (
                   <div class="mt-3 flex items-center w-full">
                     <label class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400 flex items-center w-full">
                       <input
                         type="radio"
-                        id={`mce-${t.name}${i}`}
-                        name={t.name}
-                        value={t.value}
+                        id={`mce-${name}${i}`}
+                        name={name}
+                        value={v}
                         class="cursor-pointer mr-2 rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:ring-blue-500"
                       />
-                      {t.value}
+                      {v}
                     </label>
                   </div>
                 ))

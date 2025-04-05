@@ -9,7 +9,6 @@ import Hero2 from '~/components/widgets/Hero2.astro';
 import imageVliegshow from '~/assets/images/vliegshow.jpg';
 import imageWedstrijd from '~/assets/images/wedstrijd1.jpg';
 import imageHerdenking from '~/assets/images/4mei.jpeg';
-import SubscribeMailchimp from '~/components/widgets/SubscribeMailchimp.astro'
 import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
@@ -53,7 +52,7 @@ const metadata = {
       actions={[
         {
           text: 'Schrijf je in!',
-          href: '#',
+          href: '/inschrijven',
         },
       ]}
       isSticky
@@ -68,10 +67,10 @@ const metadata = {
     title="60 jaar!"
     tagline="Luchtvaargroep zeist"
     image={{ src: '~/assets/images/wedstrijd2023.jpg', alt: 'AstroWind Hero Image' }}
-    actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('/contact#form') }]}
+    actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('/inschrijven') }]}
   >
     <Fragment slot="subtitle">
-      Dit jaar bestaat de Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele,
+      Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele,
       fantastisch nieuwe activiteiten doen en natuurlijk een reünie houden. Schrijf je in en je krijgt het hele jaar
       door uitnodigingen en updates, zodat jij mee kunt doen met wat je wilt!
     </Fragment>
@@ -83,27 +82,32 @@ const metadata = {
     items={[
       {
         title: 'Herdenken',
-        description: 'In 2018 is een nieuwe traditie ontstaan en sindsdien nemen we elk jaar deel aan de herdenking op 4 mei, bij het monument van Régis Deleuze, achter kasteel Beverweerd. Aan deze herdenking neemt ook een detachement van de RAF-deel, van het laatste squadron waar Régis Deleuze gevlogen heeft. Als het weer het toelaat vindt er een eerbetoon plaats door middel van een fly-by van oude vliegtuigen van Vliegend Museum Seppe.',
-        icon: 'tabler:number-80-small'
+        description:
+          'In 2018 is een nieuwe traditie ontstaan en sindsdien nemen we elk jaar deel aan de herdenking op 4 mei, bij het monument van Régis Deleuze, achter kasteel Beverweerd. Aan deze herdenking neemt ook een detachement van de RAF-deel, van het laatste squadron waar Régis Deleuze gevlogen heeft. Als het weer het toelaat vindt er een eerbetoon plaats door middel van een fly-by van oude vliegtuigen van Vliegend Museum Seppe.',
+        icon: 'tabler:number-80-small',
       },
       {
         title: 'Onze rol',
-        description: 'Als scouting groep reiken wij de kransen en bloemstukken aan de notabelen, net als de collega-scouts op de Dam. We leggen zelf het laatste bloemstuk. Omdat dit jaar in het teken staan van 80 jaar herdenken wil de organisator groot uitpakken en na afloop van de ceremonie aan alle belangstellenden een kop koffie, thee of warme chocolademelk aanbieden. Wij verzorgen de uitreiking van de warme chocomel.',
-        icon: 'tabler:wheat'
+        description:
+          'Als scouting groep reiken wij de kransen en bloemstukken aan de notabelen, net als de collega-scouts op de Dam. We leggen zelf het laatste bloemstuk. Omdat dit jaar in het teken staan van 80 jaar herdenken wil de organisator groot uitpakken en na afloop van de ceremonie aan alle belangstellenden een kop koffie, thee of warme chocolademelk aanbieden. Wij verzorgen de uitreiking van de warme chocomel.',
+        icon: 'tabler:wheat',
       },
       {
         title: 'Mee-eten mag',
-        description: 'Je bent om 17:00 welkom bij het <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/jrQQuuDper3YYS5R6">Pieter Dekker Groephuis</a> om te genieten van een gezamelijke maaltijd. Daarna vertrekken we per fiets naar Werkhoven.',
-        icon: 'tabler:tools-kitchen-2'
+        description:
+          'Je bent om 17:00 welkom bij het <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/jrQQuuDper3YYS5R6">Pieter Dekker Groephuis</a> om te genieten van een gezamelijke maaltijd. Daarna vertrekken we per fiets naar Werkhoven.',
+        icon: 'tabler:tools-kitchen-2',
       },
       {
         title: 'Locatie',
-        description: 'Parkeren kan langs de weg ter hoogte van kasteel Beverweerd. We verzamelen aan het begin van <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/2G7CDTqMpb6orhp58">"De Laan" (onverhard)</a> die leidt naar het monument. We lopen dan even voor achten gezamelijk en in stilte de 300 meter naar het monument.',
+        description:
+          'Parkeren kan langs de weg ter hoogte van kasteel Beverweerd. We verzamelen aan het begin van <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/2G7CDTqMpb6orhp58">"De Laan" (onverhard)</a> die leidt naar het monument. We lopen dan even voor achten gezamelijk en in stilte de 300 meter naar het monument.',
         icon: 'tabler:map-pin',
       },
       {
         title: 'Chauffeur gezocht',
-        description: 'We zoeken nog iemand die zware spullen naar de plek van bestemming kan brengen (gasfles, brander, grote pan en chocomel enz).',
+        description:
+          'We zoeken nog iemand die zware spullen naar de plek van bestemming kan brengen (gasfles, brander, grote pan en chocomel enz). Interesse graag kenbaar maken via 60jaar@luchtvaartgroepzeist.nl.',
         icon: 'tabler:help',
       },
     ]}
@@ -183,7 +187,7 @@ const metadata = {
       {
         title: 'Planning',
         description: `We rijden op zaterdag 13 september naar Sanicole en zondagavond, de 14e komen we terug. Wij zijn bezig met het regelen van een overnachting.`,
-        icon: 'tabler:calendar-check'
+        icon: 'tabler:calendar-check',
       },
       {
         title: 'Kosten',
@@ -256,7 +260,8 @@ const metadata = {
       },
       {
         title: 'Moet ik elke dag op deze website kijken zodat ik niks mis?',
-        description: 'Belangerijke nieuwtjes of wijzigingen zullen we altijd óók via een e-mail verspreiden. Dus je hoeft niet elke dag deze website te contorleren (maar dat mag natuurlijk wel!)',
+        description:
+          'Belangerijke nieuwtjes of wijzigingen zullen we altijd óók via een e-mail verspreiden. Dus je hoeft niet elke dag deze website te contorleren (maar dat mag natuurlijk wel!)',
         icon: 'tabler:chevrons-right',
       },
       {
@@ -277,15 +282,14 @@ const metadata = {
     ]}
   />
 
-  <SubscribeMailchimp></SubscribeMailchimp>
   <CallToAction
-    title="Mis niks!"
-    subtitle="Het helpt ons als je jezelf inschrijft voor onze nieuwsbrief, we weten dan beter hoeveel geinteresseerden er zijn"
+    title="Schrijf jezelf in"
+    subtitle="Help ons door jezelf vandaag nog in te schrijven. Je kunt 'm altijd wijzigen, en je kunt óók aangeven dat je het nog niet precies weet."
     actions={[
       {
         variant: 'primary',
-        text: 'Schrijf me in',
-        href: '/',
+        text: 'Laat maar zien',
+        href: '/inschrijven',
       },
     ]}
   />

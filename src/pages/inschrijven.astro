@@ -1,23 +1,20 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
+import Inschrijven from '~/components/widgets/Inschrijven.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Inschrijven',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <HeroText tagline="Contact" title="Let's Connect!" />
-
-  <ContactUs
+  <HeroText tagline="Inschrijven" title="Laat ons je voorkeuren weten" />
+  <Inschrijven
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Vul 'm vandaag nog in!"
+    subtitle="Je kunt je voorkeuren later nog wijzigen: ook als je het nog niet weet horen we graag van je! Het helpt ons te weten welke activiteiten je interesse hebben. We kunnen je gerichter informeren."
     inputs={[
       {
         type: 'email',
@@ -44,30 +41,45 @@ const metadata = {
         name: 'HERDENKING',
         label: 'Herdenking (4 mei)',
         radioOptions: [
-          {
-            name: 'test',
-            value: 'Geen interesse'
-          },
-          {
-            name: 'test',
-            value: 'Metkl jfgkljdsfglkjd sfglkjdsfglkjds fgkljdfgkljlkj'
-          }
-        ]
+          'Geen interesse',
+          'Ik weet het nog niet, hou me op de hoogte',
+          'Ik kom + eten om 17:00',
+          'Ik kom',
+        ],
       },
       {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      }
+        type: 'radio',
+        name: 'WEDSTRIJD',
+        label: 'Modelvliegwedstrijden XL (12 juli)',
+        radioOptions: [
+          'Geen interesse',
+          'Ik weet het nog niet, hou me op de hoogte',
+          'Ik kom kijken',
+          'Ik doe mee met eigen vliegtuig',
+          'Ik doe mee + ontvang graag een bouwpakket (10 euro)',
+        ],
+      },
+      {
+        type: 'radio',
+        name: 'VLIEGSHOW',
+        label: 'Vliegshow Sanicol (13 & 14 september)',
+        radioOptions: ['Geen interesse', 'Ik weet het nog niet, hou me op de hoogte', 'Ik ga mee'],
+      },
+      {
+        type: 'radio',
+        name: 'REUNIE',
+        label: 'Reünie (4 oktober)',
+        radioOptions: ['Geen interesse', 'Ik weet het nog niet, hou me op de hoogte', 'Ik kom'],
+      },
     ]}
+    button="Schrijf me in!"
     textarea={{
-      label: 'Message',
+      name: 'OPMERKING',
+      placeholder:
+        'Optioneel: bv. je komt met meerdere gezinsleden, je zit met vragen of je wilt gewoon iets vertellen',
+      label: 'Opmerkingen',
     }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
+    description="We sturen direct een (automatische!) bevestiging op het opgegeven e-mail adres. Opmerkingen bekijken we zeker, maar dit kan iets meer tijd kosten."
   />
 
   <!-- Features2 Widget ************** -->
