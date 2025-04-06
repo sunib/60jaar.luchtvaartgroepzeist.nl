@@ -67,9 +67,11 @@ const metadata = {
     actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('#inschrijven') }]}
   >
     <Fragment slot="subtitle">
-      Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele, fantastisch
-      nieuwe activiteiten doen en natuurlijk een reünie houden. Schrijf je in en je krijgt het hele jaar door
-      uitnodigingen en updates, zodat jij mee kunt doen met wat je wilt!
+      <div>
+        Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele, fantastisch
+        nieuwe activiteiten doen en natuurlijk een reünie houden. Schrijf je in en je krijgt het hele jaar door
+        uitnodigingen en updates, zodat jij mee kunt doen met wat je wilt!
+      </div>
     </Fragment>
   </Hero2>
 
@@ -133,16 +135,41 @@ const metadata = {
     id="vliegwedstrijd"
     isReversed
     isAfterContent={true}
-    items={[]}
+    items={[
+      {
+        title: 'Wat?',
+        description:
+          'Een lid bouwt 1 vliegtuig in een seizoen, dat wordt het vliegtuig waarmee je naar de Soesterduinen gaat voor de modelvliegwedstrijd. Dit is elk jaar net voor de zomervakantie: De welpen en scouts en meestal ook explorers, gaan gezamenlijk op de fiets naar de Soesterduinen. Daar vinden afstand-, tijd-, en doelvliegwedstrijden plaats met hun zelfgebouwde Aviadelaar, Sonny, Soe en Bartje. De winnaar in elke vliegtuigcategorie van de dag krijgt de wisselbeker. ',
+        icon: 'tabler:info-square-rounded',
+      },
+      {
+        title: 'XL?',
+        description:
+          'Dit jaar organiseren wij een uitgebreide versie van de modelvliegwedstrijden waarbij dus naast leden ook oud-leden mee mogen doen.',
+        icon: 'tabler:plane',
+      },
+      {
+        title: 'Fietsen',
+        description:
+          'Leden gaan op de fiets, als je wilt mag je meefietsen. Meer informatie volgt. Als je met ons meefietst: we starten bij het Pieter Dekker groepshuis.',
+        icon: 'tabler:wheat',
+      },
+      {
+        title: 'Bouwpakketen beschikbaar',
+        description:
+          'Heb je een bouwtekening van de Bartje nodig? En materiaal om er eentje te bouwen? Laat het hieronder weten, voor 10 euro stellen we een bouwpakket voor je samen.',
+        icon: 'tabler:send',
+      },
+      {
+        title: 'Locatie',
+        description:
+          'Parkeren kan <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/2G7CDTqMpb6orhp58">vlakbij de soesterduinen</a>.',
+        icon: 'tabler:map-pin',
+      },
+    ]}
     image={{
       src: imageWedstrijd,
       alt: 'Art and Music Poster Image',
-    }}
-    callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '#',
     }}
   >
     <Fragment slot="content">
@@ -150,20 +177,8 @@ const metadata = {
         12 juli 2025<br /><span class="text-2xl">Modelvliegwedstrijden XL</span>
       </h3>
       <div>
-        Dit jaar organiseren wij een uitgebreide versie van de modelvliegwedstrijden waarbij naast de leden ook
-        oud-leden mee mogen doen.
-      </div>
-      <div>
         Heb je als oud-lid nog een vliegtuig liggen of heb je zin om er weer een te bouwen? Doe mee of kom gezellig
         langs!
-      </div><div>
-        Een lid bouwt 1 vliegtuig in een seizoen, dat wordt het vliegtuig waarmee je naar de Soesterduinen gaat voor de
-        modelvliegwedstrijd. Dit is elk jaar net voor de zomervakantie: De welpen en scouts en meestal ook explorers,
-        gaan gezamenlijk op de fiets naar de Soesterduinen. Daar vinden afstand-, tijd-, en doelvliegwedstrijden plaats
-        met hun zelfgebouwde Aviadelaar, Sonny, Soe en Bartje. De winnaar in elke vliegtuigcategorie van de dag krijgt
-        de wisselbeker. Als je mee wil doen, meld je aan en geef aan of je met de groep meefietst, of dat je per eigen
-        gelegenheid naar de Soesterduinen gaat. Heb je een bouwtekening van de Bartje nodig? En materiaal om er eentje
-        te bouwen? Laat even weten, voor 10 euro stellen we een bouwpakket voor je samen.
       </div>
     </Fragment>
 
@@ -183,8 +198,13 @@ const metadata = {
       },
       {
         title: 'Planning',
-        description: `We rijden op zaterdag 13 september naar Sanicole en zondagavond, de 14e komen we terug. Wij zijn bezig met het regelen van een overnachting.`,
+        description: `We rijden op zaterdag 13 september naar Sanicole en zondagavond, de 14e komen we terug.`,
         icon: 'tabler:calendar-check',
+      },
+      {
+        title: 'Overnachting',
+        description: `Een locatie op loopafstand van de show? Laat je door ons verassen, meer informatie volgt.`,
+        icon: 'tabler:bed',
       },
       {
         title: 'Kosten',
@@ -247,7 +267,7 @@ const metadata = {
       {
         title: 'Moet ik lid zijn om mee te doen?',
         description:
-          'Als je afgelopen 60 jaar op enige manier verbonden bent geweest met onze groep dan ben je van harte welkom! Je bent ook welkom als je niet lid bent (of geweest).',
+          'Als je afgelopen 60 jaar op enige manier verbonden bent geweest met onze groep dan ben je van harte welkom!',
         icon: 'tabler:chevrons-right',
       },
       {
@@ -263,12 +283,12 @@ const metadata = {
       },
       {
         title: 'Waar kan ik me opgeven?',
-        description: `We hebben een aparte pagina die te bereiken is met de grote knop, hierop kun je ook per activiteit aangeven of je interesse hebt. Doe dit vooral zo snel mogelijk.`,
+        description: `Nog iets verder doorscrollen, je bent er bijna! Daar vind je een formulier.`,
         icon: 'tabler:chevrons-right',
       },
       {
-        title: 'Kan ik helpen?',
-        description: `We hebben veel e-mail adressen achterhaald: maar hoort zegt het voort! Deel deze website vooral met iedereen die verbonden is en/of was met onze groep!`,
+        title: 'Tot wanneer kan ik me inschrijven?',
+        description: `Doe het alsjeblieft zo snel als je kunt, dit helpt ons met het organiseren en we kunnen je gerichter informeren. Ook als je nog niet precies weet wat en / hoe is het zinvol dat je aangeeft waar je interesses liggen.`,
         icon: 'tabler:chevrons-right',
       },
       {
@@ -283,7 +303,7 @@ const metadata = {
     id="inschrijven"
     actionUrl="https://luchtvaartgroepzeist.us15.list-manage.com/subscribe/post?u=db5d91e69bd533f2922009486&id=26d45d657d&f_id=00caa6e1f0"
     title="Schrijf je hieronder in! ✏️"
-    subtitle="Je voorkeuren zijn wijzigbaar. Het helpt ons te weten welke activiteiten je interesse hebben. Zo kunnen we jou en anderen gericht informeren."
+    subtitle="Je voorkeuren zijn later nog wijzigbaar. Het helpt ons te weten welke activiteiten je interesse hebben. En we kunnen je gerichter informeren."
     inputs={[
       {
         type: 'email',
