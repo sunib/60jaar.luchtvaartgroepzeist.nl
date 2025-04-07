@@ -8,8 +8,10 @@ import Hero2 from '~/components/widgets/Hero2.astro';
 import imageVliegshow from '~/assets/images/vliegshow.jpg';
 import imageWedstrijd from '~/assets/images/wedstrijd1.jpg';
 import imageHerdenking from '~/assets/images/4mei.jpeg';
+import imageReunie from '~/assets/images/wedstrijd2.jpg';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Inschrijven from '~/components/widgets/Inschrijven.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
 
 const metadata = {
   title: '60 jaar luchtvaartgroep Zeist',
@@ -47,6 +49,10 @@ const metadata = {
           text: 'FAQ',
           href: '#faq',
         },
+        {
+          text: 'Contact',
+          href: '#contact',
+        },
       ]}
       actions={[
         {
@@ -67,11 +73,9 @@ const metadata = {
     actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('#inschrijven') }]}
   >
     <Fragment slot="subtitle">
-      <div>
-        Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele, fantastisch
-        nieuwe activiteiten doen en natuurlijk een reünie houden. Schrijf je in en je krijgt het hele jaar door
-        uitnodigingen en updates, zodat jij mee kunt doen met wat je wilt!
-      </div>
+      Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele, fantastisch
+      nieuwe activiteiten doen en natuurlijk een reünie houden. <br /><br />Schrijf je vandaag nog zodat we weten waar
+      je interesses liggen.<br />
     </Fragment>
   </Hero2>
 
@@ -94,7 +98,7 @@ const metadata = {
       {
         title: 'Mee-eten mag',
         description:
-          'Je bent om 17:00 welkom bij het <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/jrQQuuDper3YYS5R6">Pieter Dekker Groephuis</a> om te genieten van een gezamelijke maaltijd. Daarna vertrekken we per fiets naar Werkhoven.',
+          'Je bent om 17:00 welkom bij het <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/jrQQuuDper3YYS5R6">Pieter Dekker Groepshuis</a> om te genieten van een gezamelijke maaltijd. Daarna vertrekken we per fiets naar Werkhoven.',
         icon: 'tabler:tools-kitchen-2',
       },
       {
@@ -145,13 +149,13 @@ const metadata = {
       {
         title: 'XL?',
         description:
-          'Dit jaar organiseren wij een uitgebreide versie van de modelvliegwedstrijden waarbij dus naast leden ook oud-leden mee mogen doen.',
+          'Dit jaar organiseren wij een uitgebreide versie van de modelvliegwedstrijden waarbij naast leden ook oud-leden mee mogen doen.',
         icon: 'tabler:plane',
       },
       {
         title: 'Fietsen',
         description:
-          'Leden gaan op de fiets, als je wilt mag je meefietsen. Meer informatie volgt. Als je met ons meefietst: we starten bij het Pieter Dekker groepshuis.',
+          'Leden gaan op de fiets, als je wilt mag je meefietsen. Meer informatie volgt. Als je met ons meefietst: we starten bij het <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/jrQQuuDper3YYS5R6">Pieter Dekker Groepshuis</a>.',
         icon: 'tabler:wheat',
       },
       {
@@ -163,7 +167,7 @@ const metadata = {
       {
         title: 'Locatie',
         description:
-          'Parkeren kan <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/2G7CDTqMpb6orhp58">vlakbij de soesterduinen</a>.',
+          'De wedstrijden vinden plaats op een helling aan de <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/VH6cabJ8zEK6wEmW8">oostkant van de soesterduinen</a>. Als je met de auto komt: <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/2G7CDTqMpb6orhp58"> hier</a> kun je gratis parkeren.',
         icon: 'tabler:map-pin',
       },
     ]}
@@ -192,11 +196,6 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: 'Samengevat',
-        description:
-          'Omdat er al enkele jaren geen vliegshow in Nederland wordt georganiseerd, willen we dit jaar naar Sanicole in België.',
-      },
-      {
         title: 'Planning',
         description: `We rijden op zaterdag 13 september naar Sanicole en zondagavond, de 14e komen we terug.`,
         icon: 'tabler:calendar-check',
@@ -218,15 +217,19 @@ const metadata = {
     }}
     callToAction={{
       target: '_blank',
-      text: 'Website Sanicole',
+      text: 'Website',
       icon: 'tabler:chevron-right',
       href: 'https://www.sanicole.com/nl/home-nl',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        13 & 14 september 2025<br /><span class="text-2xl">Vliegshow Belgie</span>
+        13 & 14 september 2025<br /><span class="text-2xl">International Sanicole Airshow</span>
       </h3>
+      <div>
+        Omdat er al enkele jaren geen vliegshow in Nederland wordt georganiseerd, gaan we dit jaar naar Sanicole in
+        België.
+      </div>
     </Fragment>
 
     <Fragment slot="bg">
@@ -239,20 +242,17 @@ const metadata = {
     isReversed
     items={[]}
     image={{
-      src: imageHerdenking,
+      src: imageReunie,
       alt: 'Reunie',
-    }}
-    callToAction={{
-      text: 'Website Dodenherdenking Werkhoven',
-      icon: 'tabler:chevron-right',
-      href: '#',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         4 oktober 2025<br /><span class="text-2xl">Reünie</span>
       </h3>
-      <div>Hou de datum vast en kijk af en toe op deze site, we laten het je weten zodra er meer bekend is!</div>
+      <div>
+        Zet 4 oktober in je agenda en schrijf jezelf in zodat we je op de hoogte kunnen houden van ontwikkelingen.
+      </div>
     </Fragment>
 
     <Fragment slot="bg">
@@ -272,28 +272,33 @@ const metadata = {
       },
       {
         title: 'Waarom hebben jullie deze aparte website gemaakt?',
-        description: `Zodat je 'm gemakkelijk kunt delen met anderen die wij mogelijk gemist hebben! Ook werken we deze site continu bij met de laatst beschikbare informatie. Wees gerust we sturen je bij elke belangrijke wijziging natuurlijk óók een e-mail.`,
+        description: `Zodat je 'm makkelijk kunt delen met anderen die wij gemist hebben! Zij kunnen zichzelf dan ook inschrijven en krijgen dan ook e-mails bij belangrijk nieuws.`,
         icon: 'tabler:chevrons-right',
       },
       {
         title: 'Moet ik elke dag op deze website kijken zodat ik niks mis?',
         description:
-          'Belangerijke nieuwtjes of wijzigingen zullen we altijd óók via een e-mail verspreiden. Dus je hoeft niet elke dag deze website te contorleren (maar dat mag natuurlijk wel!)',
+          'Nieuws zullen we altijd óók via een e-mail verspreiden. Dus je hoeft hier niet elke dag te kijken (maar dat mag natuurlijk wel! 😀)',
         icon: 'tabler:chevrons-right',
       },
       {
-        title: 'Waar kan ik me opgeven?',
-        description: `Nog iets verder doorscrollen, je bent er bijna! Daar vind je een formulier.`,
+        title: 'Jullie hebben mijn e-mail, moet ik me dan ook inschrijven?',
+        description: `Kort: Ja! We hebben veel e-mail addressen verzameld, maar we hebben geen idee of die ontvangers ook echt interesse hebben in deze activiteiten. We gebruiken de 'inschrijving' om dit te ontdekken en natuurlijk ook om je gericht te kunnen informeren.`,
         icon: 'tabler:chevrons-right',
       },
       {
         title: 'Tot wanneer kan ik me inschrijven?',
-        description: `Doe het alsjeblieft zo snel als je kunt, dit helpt ons met het organiseren en we kunnen je gerichter informeren. Ook als je nog niet precies weet wat en / hoe is het zinvol dat je aangeeft waar je interesses liggen.`,
+        description: `Doe het alsjeblieft zo snel als je kunt, dit helpt ons organiseren en we kunnen je gericht informeren. Ook als je het nog niet precies weet is het zinvol dat je aangeeft waar je interesses liggen.`,
         icon: 'tabler:chevrons-right',
       },
       {
-        title: 'Wat heb ik opgegeven / kan ik nog wijzigen?',
-        description: `Natuurlijk! Gebruik hetzelfde e-mail adres en je 'overschrijft' je vorige opgave. Je kunt ook <a class="text-blue-600 underline dark:text-muted" href='http://eepurl.com/i8FGCk'>hier 'inloggen' via je e-mail adres</a> en bekijken wat je eerder gekozen hebt.`,
+        title: 'Ben ik al ingeschreven? En mag ik mijn inschrijving wijzigen?',
+        description: `Je krijgt van ons altijd een bevestiging per e-mail. Afzender is 60jaar@luchtvaartgroepzeist.nl, in deze e-mail staat alles dat je hebt ingevuld. Wijzigen kan door onderstaand formulier opnieuw in vullen, dat 'overschrijft' je vorige opgave.`,
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Waar kan ik me inschrijven?',
+        description: `Je bent er bijna, scroll nog iets verder. Daar vind je het formulier.`,
         icon: 'tabler:chevrons-right',
       },
     ]}
@@ -302,8 +307,8 @@ const metadata = {
   <Inschrijven
     id="inschrijven"
     actionUrl="https://luchtvaartgroepzeist.us15.list-manage.com/subscribe/post?u=db5d91e69bd533f2922009486&id=26d45d657d&f_id=00caa6e1f0"
-    title="Schrijf je hieronder in! ✏️"
-    subtitle="Je voorkeuren zijn later nog wijzigbaar. Het helpt ons te weten welke activiteiten je interesse hebben. En we kunnen je gerichter informeren."
+    title="Schrijf je hier in! ✏️"
+    subtitle="Je voorkeuren zijn later nog wijzigbaar. Het helpt ons enorm om te weten welke activiteiten je interesse hebben."
     inputs={[
       {
         type: 'email',
@@ -374,4 +379,22 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Inschrijven>
+
+  <Steps2
+    title="Contact"
+    id="contact"
+    subtitle="Heb je nog andere vragen en/of opmerkingen? Laat het ons weten!"
+    items={[
+      {
+        title: 'E-mail',
+        description: '<a href="mailto:60jaar@luchtvaartgroepzeist.nl">60jaar@luchtvaartgroepzeist.nl</a>',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Follow us',
+        description: '<a href="https://www.instagram.com/luchtvaartgroep_zeist/">luchtvaartgroep_zeist</a>',
+        icon: 'tabler:brand-instagram',
+      },
+    ]}
+  />
 </Layout>
