@@ -5,10 +5,11 @@ import Header from '~/components/widgets/Header.astro';
 import Content from '~/components/widgets/Content.astro';
 import { getPermalink } from '~/utils/permalinks';
 import Hero2 from '~/components/widgets/Hero2.astro';
+import imageTop from '~/assets/images/groep-wedstrijd-2023-2.jpg';
 import imageVliegshow from '~/assets/images/vliegshow.jpg';
-import imageWedstrijd from '~/assets/images/wedstrijd1.jpg';
+import imageWedstrijd from '~/assets/images/20240629-Luchtvaartgroep zeist-0746.jpeg';
 import imageHerdenking from '~/assets/images/4mei.jpeg';
-import imageReunie from '~/assets/images/wedstrijd2.jpg';
+import imageReunie from '~/assets/images/landingpage foto collage1.jpeg';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Inschrijven from '~/components/widgets/Inschrijven.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
@@ -56,7 +57,7 @@ const metadata = {
       ]}
       actions={[
         {
-          text: 'Schrijf je in!',
+          text: 'Schrijf je in! ✏️',
           href: '#inschrijven',
         },
       ]}
@@ -69,13 +70,17 @@ const metadata = {
     id="hero"
     title="60 jaar!"
     tagline="Luchtvaargroep zeist"
-    image={{ src: '~/assets/images/wedstrijd2023.jpg', alt: 'AstroWind Hero Image' }}
+    image={{ src: imageTop, alt: 'afbeelding scouts vliegwedstrijd' }}
     actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('#inschrijven') }]}
   >
     <Fragment slot="subtitle">
       Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele, fantastisch
-      nieuwe activiteiten doen en natuurlijk een reünie houden. <br /><br />Schrijf je vandaag nog zodat we weten waar
+      nieuwe activiteiten doen en natuurlijk een reünie houden. <br /><br />Schrijf je vandaag nog in zodat we weten waar
       je interesses liggen.<br />
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-dark dark:bg-transparent"></div>
     </Fragment>
   </Hero2>
 
@@ -131,13 +136,12 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
   <Content
     id="vliegwedstrijd"
-    isReversed
     isAfterContent={true}
     items={[
       {
@@ -187,12 +191,13 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-dark dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
   <Content
     id="vliegshow"
+    isReversed
     isAfterContent={true}
     items={[
       {
@@ -233,13 +238,12 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 #D2C3B1 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
   <Content
     id="reunie"
-    isReversed
     items={[]}
     image={{
       src: imageReunie,
@@ -256,7 +260,7 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-dark dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
@@ -282,8 +286,8 @@ const metadata = {
         icon: 'tabler:chevrons-right',
       },
       {
-        title: 'Jullie hebben mijn e-mail, moet ik me dan ook inschrijven?',
-        description: `Kort: Ja! We hebben veel e-mail addressen verzameld, maar we hebben geen idee of die ontvangers ook echt interesse hebben in deze activiteiten. We gebruiken de 'inschrijving' om dit te ontdekken en natuurlijk ook om je gericht te kunnen informeren.`,
+        title: 'Jullie sturen mij deze e-mail, moet ik me dan ook inschrijven?',
+        description: `Graag wel! We hebben veel e-mail addressen verzameld, maar we hebben geen idee of die ontvangers ook echt interesse hebben in deze activiteiten. We gebruiken de 'inschrijving' om dit te ontdekken en natuurlijk ook om je gericht te kunnen informeren.`,
         icon: 'tabler:chevrons-right',
       },
       {
@@ -376,7 +380,7 @@ const metadata = {
     description="We sturen direct een (automatische!) bevestiging op het opgegeven e-mail adres. Opmerkingen bekijken we zeker, maar dit kan iets meer tijd kosten."
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-dark dark:bg-transparent"></div>
     </Fragment>
   </Inschrijven>
 
