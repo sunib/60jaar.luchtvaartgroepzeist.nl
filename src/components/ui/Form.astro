@@ -12,11 +12,7 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
         ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', radioOptions }) =>
           name && (
             <div class="mb-6">
-              {label && (
-                <label class="block text-sm font-medium">
-                  {label}
-                </label>
-              )}
+              {label && <label class="block text-sm font-medium">{label}</label>}
 
               {radioOptions ? (
                 radioOptions?.map((v, i) => (
