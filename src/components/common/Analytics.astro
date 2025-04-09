@@ -49,7 +49,27 @@
   })(document, window.posthog || []);
   posthog.init('phc_Ud16QGkinIJ3BoozA9EUhTTEh9y8w6U1PKMKTE9ALPN', {
     api_host: 'https://ph.luchtvaartgroepzeist.nl',
-    ui_host: 'https://eu.posthog.com'
+    ui_host: 'https://eu.posthog.com',
   });
-  /* eslint-enable */
+</script>
+
+<script>
+  /* eslint-disable */
+  // @ts-nocheck   https://github.com/withastro/language-tools/issues/604
+  function getParameterByName(name) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(window.location.href);
+    if (!results) return null;
+    if (!results[2]) return '';
+    let result = decodeURIComponent(results[2].replace(/\+/g, ' '));
+    var element = document.getElementById(name) as HTMLInputElement;
+    element.value = result;
+  }
+
+  window.addEventListener('load', function () {
+    getParameterByName('EMAIL');
+    getParameterByName('FNAME');
+    getParameterByName('LNAME');
+  });
 </script>
