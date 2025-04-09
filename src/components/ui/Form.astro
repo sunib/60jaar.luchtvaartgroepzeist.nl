@@ -12,13 +12,12 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
         ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', radioOptions }) =>
           name && (
             <div class="mb-6">
-              {label && (
-                <label {...(!radioOptions && { for: { name } })} class="block text-sm font-medium">
-                  {label}
-                </label>
-              )}
-
               {radioOptions ? (
+                label && (
+                  <label class="block text-sm font-medium">
+                    {label}
+                  </label>
+                ) &&
                 radioOptions?.map((v, i) => (
                   <div class="mt-3 flex items-center w-full">
                     <label class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400 flex items-center w-full">
@@ -34,6 +33,10 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
                   </div>
                 ))
               ) : (
+                <label for={name} class="block text-sm font-medium">
+                  {label}
+                </label>
+              
                 <input
                   type={type}
                   name={name}
