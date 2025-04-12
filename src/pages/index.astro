@@ -12,10 +12,11 @@ import imageHerdenking from '~/assets/images/4mei.jpeg';
 import imageReunie from '~/assets/images/landingpage foto collage1.jpeg';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Inschrijven from '~/components/widgets/Inschrijven.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
+import Contact from '~/components/widgets/Contact.astro';
 
 const metadata = {
   title: '60 jaar luchtvaartgroep Zeist',
+  mail: '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">60jaar@luchtvaartgroepzeist.nl</a>',
 };
 ---
 
@@ -115,7 +116,9 @@ const metadata = {
       {
         title: 'Chauffeur gezocht',
         description:
-          'We zoeken nog iemand die zware spullen naar de plek van bestemming kan brengen (gasfles, brander, grote pan en chocomel enz). Interesse graag kenbaar maken via <a href="mailto:60jaar@luchtvaartgroepzeist.nl">60jaar@luchtvaartgroepzeist.nl</a>.',
+          'We zoeken nog iemand die zware spullen naar de plek van bestemming kan brengen (gasfles, brander, grote pan en chocomel enz). Interesse graag kenbaar maken via ' +
+          metadata.mail +
+          '.',
         icon: 'tabler:help',
       },
     ]}
@@ -297,7 +300,7 @@ const metadata = {
       },
       {
         title: 'Ben ik al ingeschreven? En mag ik mijn inschrijving wijzigen?',
-        description: `Je krijgt van ons altijd een bevestiging per e-mail. Afzender is 60jaar@luchtvaartgroepzeist.nl, in deze e-mail staat alles dat je hebt ingevuld. Wijzigen kan door onderstaand formulier opnieuw in vullen, dat 'overschrijft' je vorige opgave.`,
+        description: `Je krijgt van ons altijd een bevestiging per e-mail. Afzender is ${metadata.mail} in deze e-mail staat alles dat je hebt ingevuld. Wijzigen kan door onderstaand formulier opnieuw in vullen, dat 'overschrijft' je vorige opgave.`,
         icon: 'tabler:chevrons-right',
       },
       {
@@ -384,21 +387,5 @@ const metadata = {
     </Fragment>
   </Inschrijven>
 
-  <Steps2
-    title="Contact"
-    id="contact"
-    subtitle="Heb je nog andere vragen en/of opmerkingen? Laat het ons weten!"
-    items={[
-      {
-        title: 'E-mail',
-        description: '<a href="mailto:60jaar@luchtvaartgroepzeist.nl">60jaar@luchtvaartgroepzeist.nl</a>',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Follow us',
-        description: '<a href="https://www.instagram.com/luchtvaartgroep_zeist/">luchtvaartgroep_zeist</a>',
-        icon: 'tabler:brand-instagram',
-      },
-    ]}
-  />
+  <Contact mail={metadata.mail} />
 </Layout>

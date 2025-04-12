@@ -1,11 +1,12 @@
 ---
 import Hero from '~/components/widgets/Hero.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import imageWedstrijd from '~/assets/images/wedstrijd2.jpg';
 import Header from '~/components/widgets/Header.astro';
+import Contact from '~/components/widgets/Contact.astro';
 
 const title = `Gelukt`;
+const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">60jaar@luchtvaartgroepzeist.nl</a>';
 ---
 
 <Layout metadata={{ title }}>
@@ -74,20 +75,5 @@ const title = `Gelukt`;
     </Fragment>
   </Hero>
 
-  <Steps2
-    title="Contact"
-    subtitle="Heb je nog andere vragen en/of opmerkingen? Laat het ons weten!"
-    items={[
-      {
-        title: 'E-mail',
-        description: '<a href="mailto:60jaar@luchtvaartgroepzeist.nl">60jaar@luchtvaartgroepzeist.nl</a>',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Follow us',
-        description: '<a href="https://www.instagram.com/luchtvaartgroep_zeist/">luchtvaartgroep_zeist"</a>',
-        icon: 'tabler:brand-instagram',
-      },
-    ]}
-  />
+  <Contact mail={mail} />
 </Layout>

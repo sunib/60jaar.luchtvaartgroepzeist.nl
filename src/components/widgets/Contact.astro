@@ -1,0 +1,23 @@
+---
+import Steps2 from './Steps2.astro';
+
+const { mail } = Astro.props;
+---
+
+<Steps2
+  title="Contact"
+  id="contact"
+  subtitle="Heb je nog andere vragen en/of opmerkingen? Laat het ons weten!"
+  items={[
+    {
+      title: 'E-mail',
+      description: mail,
+      icon: 'tabler:mail',
+    },
+    {
+      title: 'Follow us',
+      description: '<a href="https://www.instagram.com/luchtvaartgroep_zeist/">luchtvaartgroep_zeist</a>',
+      icon: 'tabler:brand-instagram',
+    },
+  ]}
+/>
