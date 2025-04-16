@@ -210,7 +210,7 @@ const metadata = {
       },
       {
         title: 'Overnachting',
-        description: `Een locatie op loopafstand van de show? Laat je door ons verrassen, meer informatie volgt.`,
+        description: `Wij hebben een overnachting op loopafstand kunnen regelen! Laat je door ons verrassen, en geef jezelf snel op bij het <a href="#inschrijven">inschrijfformulier</a>.`,
         icon: 'tabler:bed',
       },
       {
@@ -225,7 +225,7 @@ const metadata = {
     }}
     callToAction={{
       target: '_blank',
-      text: 'Website',
+      text: 'Website Sanicole',
       icon: 'tabler:chevron-right',
       href: 'https://www.sanicole.com/nl/home-nl',
     }}
@@ -258,7 +258,8 @@ const metadata = {
         4 oktober 2025<br /><span class="text-2xl">Reünie</span>
       </h3>
       <div>
-        Zet 4 oktober in je agenda en schrijf jezelf in zodat we je op de hoogte kunnen houden van ontwikkelingen.
+        Net als 10 jaar geleden organiseren we ook dit jaar een reünie! Deze zal op zaterdag 4 oktober 2025 plaatsvinden. En, wat is een reünie zonder (oud)leden & (oud)bestuursleden? Het lijkt ons daarom erg leuk, om iedereen weer te zien en te spreken. Noteer deze datum alvast in je agenda, en hopelijk kun je erbij zijn.
+        We zijn druk bezig met de organisatie van de reünie, meer details volgen later. Schrijf jezelf in elk geval alvast <a href="#inschrijven">hieronder</a> in zodat we je op de hoogte kunnen houden.
       </div>
     </Fragment>
 
@@ -321,26 +322,31 @@ const metadata = {
         type: 'email',
         name: 'EMAIL',
         label: 'E-mail adres',
+        required: true,
       },
       {
         type: 'text',
         name: 'FNAME',
         label: 'Voornaam',
+        required: true,
       },
       {
         type: 'text',
         name: 'LNAME',
         label: 'Achternaam',
+        required: true,
       },
       {
         type: 'text',
         name: 'MOBIEL',
         label: 'Mobiele nummer',
+        required: false,
       },
       {
         type: 'radio',
         name: 'HERDENKING',
         label: 'Herdenking (4 mei)',
+        required: true,
         radioOptions: [
           'Geen interesse',
           'Ik weet het nog niet, hou me op de hoogte',
@@ -352,6 +358,7 @@ const metadata = {
         type: 'radio',
         name: 'WEDSTRIJD',
         label: 'Modelvliegwedstrijden XL (12 juli)',
+        required: true,
         radioOptions: [
           'Geen interesse',
           'Ik weet het nog niet, hou me op de hoogte',
@@ -364,12 +371,14 @@ const metadata = {
         type: 'radio',
         name: 'VLIEGSHOW',
         label: 'Vliegshow Sanicol (13 & 14 september)',
+        required: true,
         radioOptions: ['Geen interesse', 'Ik weet het nog niet, hou me op de hoogte', 'Ik ga mee'],
       },
       {
         type: 'radio',
         name: 'REUNIE',
         label: 'Reünie (4 oktober)',
+        required: true,
         radioOptions: ['Geen interesse', 'Ik weet het nog niet, hou me op de hoogte', 'Ik kom'],
       },
     ]}

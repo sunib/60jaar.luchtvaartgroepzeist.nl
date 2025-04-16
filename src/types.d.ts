@@ -168,6 +168,7 @@ export interface Input {
   autocomplete?: string;
   placeholder?: string;
   radioOptions?: Array<string>;
+  required: boolean;
 }
 
 export interface Textarea {
