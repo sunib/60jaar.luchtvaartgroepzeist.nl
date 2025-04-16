@@ -13,23 +13,25 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
           name && (
             <div class="mb-6">
               {radioOptions ? (
-                <div class="pb-2 block text-sm font-medium">{label}</div>
-                <div class="p-2 [&:has(input[type='radio']:user-invalid)]:border-2 border-red-400 rounded-lg">
-                  {radioOptions?.map((v, i) => (
-                    <div class="p-1 flex items-center w-full">
-                      <label class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400 flex items-center w-full">
-                        <input
-                          type="radio"
-                          id={`mce-${name}${i}`}
-                          name={name}
-                          value={v}
-                          required={required}
-                          class="cursor-pointer mr-2 rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:ring-blue-500"
-                        />
-                        {v}
-                      </label>
-                    </div>
-                  ))}
+                <div>
+                  <div class="pb-2 block text-sm font-medium">{label}</div>
+                  <div class="p-2 [&:has(input[type='radio']:user-invalid)]:border-2 border-red-400 rounded-lg">
+                    {radioOptions?.map((v, i) => (
+                      <div class="p-1 flex items-center w-full">
+                        <label class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400 flex items-center w-full">
+                          <input
+                            type="radio"
+                            id={`mce-${name}${i}`}
+                            name={name}
+                            value={v}
+                            required={required}
+                            class="cursor-pointer mr-2 rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:ring-blue-500"
+                          />
+                          {v}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ) : (
                 <div>
