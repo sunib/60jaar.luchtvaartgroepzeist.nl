@@ -382,15 +382,36 @@ const metadata = {
         type: 'number',
         name: 'RADULTS',
         label: 'Aantal volwassenen (inclusief jezelf)',
-        value: 1,
+        defaultValue: "1",
         required: false,
       },
       {
         type: 'number',
         name: 'RCHILDREN',
         label: 'Aantal kinderen',
-        value: 0,
+        defaultValue: "0",
         required: false,
+      },
+      {
+        type: 'text',
+        name: 'RTOTAL',
+        label: 'Totaalbedrag BBQ (wordt automatisch berekend)',
+        defaultValue: "€0.00",
+        required: false,
+        readonly: true,
+        isCalculated: true,
+      },
+      {
+        type: 'radio',
+        name: 'RPAYMENT',
+        label: 'Betaalstatus BBQ',
+        required: false,
+        defaultValue: 'Nog niet betaald',
+        radioOptions: [
+          'Nog niet betaald',
+          'Reeds betaald',
+          'Betaal ik ter plaatse',
+        ],
       },
       {
         type: 'radio',
@@ -411,7 +432,7 @@ const metadata = {
         'Bijzondere wensen, vragen over de BBQ betaling, of andere opmerkingen',
       label: 'Opmerkingen',
     }}
-    description="We sturen direct een bevestiging. Voor BBQ betaling ontvang je aparte instructies. Aanmelden kan tot 17 september 2025."
+    description="We sturen direct een bevestiging. Het totaalbedrag wordt automatisch berekend. Je kunt direct betalen via de ING-link die verschijnt. Aanmelden kan tot 17 september 2025."
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-dark dark:bg-transparent"></div>

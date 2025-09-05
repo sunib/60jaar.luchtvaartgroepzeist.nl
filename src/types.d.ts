@@ -169,6 +169,9 @@ export interface Input {
   placeholder?: string;
   radioOptions?: Array<string>;
   required: boolean;
+  defaultValue?: string;
+  readonly?: boolean;
+  isCalculated?: boolean;
 }
 
 export interface Textarea {

@@ -5,11 +5,11 @@ import Button from '~/components/ui/Button.astro';
 const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = Astro.props;
 ---
 
-<form action={actionUrl} method="post">
+<form action={actionUrl} method="post" id="bbq-form">
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', radioOptions, required, value, defaultValue }) =>
+        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', radioOptions, required, defaultValue }) =>
           name && (
             <div class="mb-6">
               {radioOptions ? (
@@ -46,8 +46,9 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
                     autocomplete={autocomplete}
                     placeholder={placeholder}
                     required={required}
-                    value={value}
-                    class="valid:focus:bg-lime-50 :bg-red-400 [&:user-invalid]:border-red-400 py-3 px-4 block w-full text-md rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                    value={defaultValue}
+                    readonly={inputs.find(input => input.name === name)?.readonly}
+                    class={`valid:focus:bg-lime-50 :bg-red-400 [&:user-invalid]:border-red-400 py-3 px-4 block w-full text-md rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 ${inputs.find(input => input.name === name)?.readonly ? 'bg-gray-100 dark:bg-gray-800' : ''}`}
                   />
                 </div>
               )}
@@ -72,6 +73,9 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
       </div>
     )
   }
+
+  <!-- Container voor de betaallink -->
+  <div id="payment-link" class="mb-6"></div>
 
   {
     disclaimer && (
@@ -111,3 +115,138 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
     )
   }
 </form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('bbq-form') as HTMLFormElement;
+    if (!form) return;
+
+    const adultsInput = document.getElementById('RADULTS') as HTMLInputElement;
+    const childrenInput = document.getElementById('RCHILDREN') as HTMLInputElement;
+    const totalInput = document.getElementById('RTOTAL') as HTMLInputElement;
+    const paymentLinkDiv = document.getElementById('payment-link') as HTMLDivElement;
+    
+    function getPaymentStatus() {
+      const paymentRadios = document.querySelectorAll('input[name="RPAYMENT"]:checked') as NodeListOf<HTMLInputElement>;
+      return paymentRadios.length > 0 ? paymentRadios[0].value : 'Nog niet betaald';
+    }
+    
+    // Prijzen
+    const ADULT_PRICE = 25;
+    const CHILD_PRICE = 12.5;
+
+    function calculateTotal() {
+      const adults = parseInt(adultsInput?.value || '0');
+      const children = parseInt(childrenInput?.value || '0');
+      const total = (adults * ADULT_PRICE) + (children * CHILD_PRICE);
+      
+      if (totalInput) {
+        totalInput.value = `€${total.toFixed(2)}`;
+      }
+      
+      // Toon betaallink als er een bedrag is en nog niet betaald
+      if (paymentLinkDiv && total > 0 && getPaymentStatus() === 'Nog niet betaald') {
+        showPaymentLink(total);
+      } else if (paymentLinkDiv) {
+        hidePaymentLink();
+      }
+    }
+
+    function showPaymentLink(amount: number) {
+      const ingUrl = 'https://www.ing.nl/de-ing/payreq?trxid=SrtprGS3xyaM0E09FfnQR0mfQ9eF4brf&flow-step=payment-request';
+      
+      paymentLinkDiv.innerHTML = `
+        <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+          <h4 class="font-medium text-blue-900 dark:text-blue-100 mb-2">💳 Betaling (€${amount.toFixed(2)})</h4>
+          <p class="text-sm text-blue-700 dark:text-blue-200 mb-3">
+            Betaal het totaalbedrag van €${amount.toFixed(2)} via onderstaande link.
+            Vermeld bij de betaling je naam en "Reunie BBQ".
+          </p>
+          <a href="${ingUrl}" target="_blank" id="payment-button"
+             class="inline-flex items-center px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-medium rounded-lg transition-colors mb-3">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+            Betaal €${amount.toFixed(2)} via ING
+          </a>
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded p-3 mb-3">
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-yellow-600 dark:text-yellow-400 mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+              </svg>
+              <div class="text-sm">
+                <p class="font-medium text-yellow-800 dark:text-yellow-200">⚠️ Belangrijk na betaling:</p>
+                <p class="text-yellow-700 dark:text-yellow-300">Na succesvolle betaling, kom terug naar deze pagina en selecteer hieronder "Reeds betaald" voordat je het formulier verstuurt.</p>
+              </div>
+            </div>
+          </div>
+          <button type="button" id="mark-paid-button"
+                  class="inline-flex items-center px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded transition-colors">
+            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            ✅ Ik heb zojuist betaald
+          </button>
+        </div>
+      `;
+      
+      // Event listener voor de "Ik heb betaald" knop
+      const markPaidButton = document.getElementById('mark-paid-button');
+      markPaidButton?.addEventListener('click', function() {
+        // Selecteer "Reeds betaald" radio button
+        const paidRadio = document.querySelector('input[name="RPAYMENT"][value="Reeds betaald"]') as HTMLInputElement;
+        if (paidRadio) {
+          paidRadio.checked = true;
+          // Trigger change event om de betaallink te verbergen
+          calculateTotal();
+          
+          // Toon bevestiging
+          const confirmation = document.createElement('div');
+          confirmation.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+          confirmation.innerHTML = '✅ Betaalstatus bijgewerkt naar "Reeds betaald"';
+          document.body.appendChild(confirmation);
+          
+          // Verwijder bevestiging na 3 seconden
+          setTimeout(() => {
+            document.body.removeChild(confirmation);
+          }, 3000);
+        }
+      });
+    }
+
+    function hidePaymentLink() {
+      paymentLinkDiv.innerHTML = '';
+    }
+
+    // Event listeners voor berekening
+    adultsInput?.addEventListener('input', calculateTotal);
+    childrenInput?.addEventListener('input', calculateTotal);
+    
+    // Event listeners voor radio buttons
+    const paymentRadios = document.querySelectorAll('input[name="RPAYMENT"]');
+    paymentRadios.forEach(radio => {
+      radio.addEventListener('change', calculateTotal);
+    });
+
+    // Initiële berekening
+    calculateTotal();
+
+    // Form validatie bij submit
+    form.addEventListener('submit', function(e) {
+      const paymentStatus = getPaymentStatus();
+      const total = totalInput?.value;
+      
+      if (total && total !== '€0.00' && paymentStatus === 'Nog niet betaald') {
+        const confirmed = confirm(
+          `Je hebt aangegeven nog niet te hebben betaald voor een bedrag van ${total}. ` +
+          `Weet je zeker dat je het formulier wilt versturen? ` +
+          `Je kunt nog steeds betalen via de ING-link hierboven.`
+        );
+        if (!confirmed) {
+          e.preventDefault();
+          return;
+        }
+      }
+    });
+  });
+</script>
