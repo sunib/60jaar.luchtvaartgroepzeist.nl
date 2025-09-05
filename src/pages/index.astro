@@ -75,7 +75,9 @@ const metadata = {
     actions={[{ variant: 'primary', text: 'Meld je aan voor de reünie!', href: getPermalink('#inschrijven') }]}
   >
     <Fragment slot="subtitle">
-      Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. De jubileumactiviteiten zijn inmiddels achter de rug, maar het hoogtepunt staat nog te wachten: onze reünie op 4 oktober! <br /><br />Meld je nu definitief aan voor deze gezellige middag en avond.<br />
+      Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. De jubileumactiviteiten zijn inmiddels achter de rug, maar het
+      hoogtepunt staat nog te wachten: onze reünie op 4 oktober! <br /><br />Meld je nu definitief aan voor deze
+      gezellige middag en avond.<br />
     </Fragment>
 
     <Fragment slot="bg">
@@ -110,7 +112,7 @@ const metadata = {
         description:
           'Parkeren kan langs de weg ter hoogte van kasteel Beverweerd. We verzamelen om 19:30 aan het begin van <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/2G7CDTqMpb6orhp58">"De Laan" (onverhard)</a> die leidt naar het monument. 19:45 lopen we dan gezamelijk en in stilte de laatste 300 meter naar het monument.',
         icon: 'tabler:map-pin',
-      }
+      },
     ]}
     image={{
       src: imageHerdenking,
@@ -179,9 +181,7 @@ const metadata = {
         12 juli 2025<br /><span class="text-2xl">Modelvliegwedstrijden XL</span>
         <span class="text-lg text-green-600 font-medium block mt-2">✅ Afgerond</span>
       </h3>
-      <div>
-        Deze activiteit heeft inmiddels plaatsgevonden en was een groot succes!
-      </div>
+      <div>Deze activiteit heeft inmiddels plaatsgevonden en was een groot succes!</div>
     </Fragment>
 
     <Fragment slot="bg">
@@ -226,9 +226,7 @@ const metadata = {
         13 & 14 september 2025<br /><span class="text-2xl">International Sanicole Airshow</span>
         <span class="text-lg text-green-600 font-medium block mt-2">✅ Inschrijven gesloten</span>
       </h3>
-      <div>
-        De aanmelding is inmiddels gesloten
-      </div>
+      <div>De aanmelding is inmiddels gesloten</div>
     </Fragment>
 
     <Fragment slot="bg">
@@ -252,15 +250,14 @@ const metadata = {
         icon: 'tabler:car',
       },
       {
-        title: '📸 Foto\'s uit de oude doos',
+        title: "📸 Foto's uit de oude doos",
         description:
-          'Heb je nog leuke foto\'s uit jouw tijd bij de Luchtvaartgroep Zeist? Neem ze vooral mee! We maken een mooie plek waar we deze herinneringen tentoonstellen – het brengt zeker mooie verhalen en herinneringen naar boven.',
+          "Heb je nog leuke foto's uit jouw tijd bij de Luchtvaartgroep Zeist? Neem ze vooral mee! We maken een mooie plek waar we deze herinneringen tentoonstellen – het brengt zeker mooie verhalen en herinneringen naar boven.",
         icon: 'tabler:camera',
       },
       {
         title: 'BBQ',
-        description:
-          'We sluiten de dag af met een gezellige barbecue!',
+        description: 'We sluiten de dag af met een gezellige barbecue!',
         icon: 'tabler:grill',
       },
       {
@@ -284,8 +281,15 @@ const metadata = {
         4 oktober 2025<br /><span class="text-2xl">Reünie</span>
       </h3>
       <div>
-        <p class="mb-4">Het is zover! Op 4 oktober as. organiseren we met veel plezier een gezellige reünie van Luchtvaartgroep Zeist, en we hopen van harte dat jij erbij bent! Een mooie gelegenheid om elkaar weer te ontmoeten, herinneringen op te halen en samen te genieten van een leuke middag en avond.</p>
-        <p class="mb-4">Graag ontvangen we je aanmelding uiterlijk op <strong>17 september 2025</strong>, zodat we alles goed kunnen organiseren.</p>
+        <p class="mb-4">
+          Het is zover! Op 4 oktober as. organiseren we met veel plezier een gezellige reünie van Luchtvaartgroep Zeist,
+          en we hopen van harte dat jij erbij bent! Een mooie gelegenheid om elkaar weer te ontmoeten, herinneringen op
+          te halen en samen te genieten van een leuke middag en avond.
+        </p>
+        <p class="mb-4">
+          Graag ontvangen we je aanmelding uiterlijk op <strong>17 september 2025</strong>, zodat we alles goed kunnen
+          organiseren.
+        </p>
       </div>
     </Fragment>
 
@@ -373,30 +377,27 @@ const metadata = {
         name: 'RDEF',
         label: 'Kom je naar de reünie (4 oktober 2025)?',
         required: true,
-        radioOptions: [
-          'Ja',
-          'Nee'
-        ],
+        radioOptions: ['Ja', 'Nee'],
       },
       {
         type: 'number',
         name: 'RADULTS',
         label: 'Aantal volwassenen (inclusief jezelf)',
-        defaultValue: "1",
+        defaultValue: '1',
         required: false,
       },
       {
         type: 'number',
         name: 'RCHILDREN',
         label: 'Aantal kinderen',
-        defaultValue: "0",
+        defaultValue: '0',
         required: false,
       },
       {
         type: 'text',
         name: 'RTOTAL',
         label: 'Totaalbedrag BBQ (wordt automatisch berekend)',
-        defaultValue: "€0.00",
+        defaultValue: '€0.00',
         required: false,
         readonly: true,
         isCalculated: true,
@@ -407,10 +408,7 @@ const metadata = {
         label: 'Betaalstatus BBQ',
         required: false,
         defaultValue: 'Nog niet betaald',
-        radioOptions: [
-          'Nog niet betaald',
-          'Reeds betaald',
-        ],
+        radioOptions: ['Nog niet betaald', 'Reeds betaald'],
       },
       {
         type: 'radio',
@@ -418,17 +416,13 @@ const metadata = {
         label: 'Heb je een gehandicaptenparkeerplaats nodig?',
         required: false,
         defaultValue: 'Nee',
-        radioOptions: [
-          'Ja',
-          'Nee',
-        ],
+        radioOptions: ['Ja', 'Nee'],
       },
     ]}
     button="Aanmelden voor reünie!"
     textarea={{
       name: 'ROPM',
-      placeholder:
-        'Bijzondere wensen, vragen over de BBQ betaling, of andere opmerkingen',
+      placeholder: 'Bijzondere wensen, vragen over de BBQ betaling, of andere opmerkingen',
       label: 'Opmerkingen',
     }}
     description="We sturen direct een bevestiging. Het totaalbedrag wordt automatisch berekend. Je kunt direct betalen via de ING-link die verschijnt. Aanmelden kan tot 17 september 2025."

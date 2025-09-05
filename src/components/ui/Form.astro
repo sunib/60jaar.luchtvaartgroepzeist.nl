@@ -9,7 +9,16 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', radioOptions, required, defaultValue }) =>
+        ({
+          type = 'text',
+          name,
+          label = '',
+          autocomplete = 'on',
+          placeholder = '',
+          radioOptions,
+          required,
+          defaultValue,
+        }) =>
           name && (
             <div class="mb-6">
               {radioOptions ? (
@@ -47,8 +56,8 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
                     placeholder={placeholder}
                     required={required}
                     value={defaultValue}
-                    readonly={inputs.find(input => input.name === name)?.readonly}
-                    class={`valid:focus:bg-lime-50 :bg-red-400 [&:user-invalid]:border-red-400 py-3 px-4 block w-full text-md rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 ${inputs.find(input => input.name === name)?.readonly ? 'bg-gray-100 dark:bg-gray-800' : ''}`}
+                    readonly={inputs.find((input) => input.name === name)?.readonly}
+                    class={`valid:focus:bg-lime-50 :bg-red-400 [&:user-invalid]:border-red-400 py-3 px-4 block w-full text-md rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 ${inputs.find((input) => input.name === name)?.readonly ? 'bg-gray-100 dark:bg-gray-800' : ''}`}
                   />
                 </div>
               )}
@@ -116,7 +125,7 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
 </form>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('bbq-form') as HTMLFormElement;
     if (!form) return;
 
@@ -124,12 +133,12 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
     const childrenInput = document.getElementById('RCHILDREN') as HTMLInputElement;
     const totalInput = document.getElementById('RTOTAL') as HTMLInputElement;
     const paymentLinkDiv = document.getElementById('payment-link') as HTMLDivElement;
-    
+
     function getPaymentStatus() {
       const paymentRadios = document.querySelectorAll('input[name="RPAYMENT"]:checked') as NodeListOf<HTMLInputElement>;
       return paymentRadios.length > 0 ? paymentRadios[0].value : 'Nog niet betaald';
     }
-    
+
     // Prijzen
     const ADULT_PRICE = 25;
     const CHILD_PRICE = 12.5;
@@ -137,12 +146,12 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
     function calculateTotal() {
       const adults = parseInt(adultsInput?.value || '0');
       const children = parseInt(childrenInput?.value || '0');
-      const total = (adults * ADULT_PRICE) + (children * CHILD_PRICE);
-      
+      const total = adults * ADULT_PRICE + children * CHILD_PRICE;
+
       if (totalInput) {
         totalInput.value = `€${total.toFixed(2)}`;
       }
-      
+
       // Toon betaallink als er een bedrag is en nog niet betaald
       if (paymentLinkDiv && total > 0 && getPaymentStatus() === 'Nog niet betaald') {
         showPaymentLink(total);
@@ -152,8 +161,9 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
     }
 
     function showPaymentLink(amount: number) {
-      const ingUrl = 'https://www.ing.nl/de-ing/payreq?trxid=SrtprGS3xyaM0E09FfnQR0mfQ9eF4brf&flow-step=payment-request';
-      
+      const ingUrl =
+        'https://www.ing.nl/de-ing/payreq?trxid=SrtprGS3xyaM0E09FfnQR0mfQ9eF4brf&flow-step=payment-request';
+
       paymentLinkDiv.innerHTML = `
         <div class="p-4 bg-white dark:bg-slate-900 border-2 border-blue-200 dark:border-blue-800 rounded-lg">
           <div class="pb-2 block text-sm font-medium text-gray-900 dark:text-white">💳 Betaling BBQ</div>
@@ -189,23 +199,23 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
           </div>
         </div>
       `;
-      
+
       // Event listener voor de "Ik heb betaald" knop
       const markPaidButton = document.getElementById('mark-paid-button');
-      markPaidButton?.addEventListener('click', function() {
+      markPaidButton?.addEventListener('click', function () {
         // Selecteer "Reeds betaald" radio button
         const paidRadio = document.querySelector('input[name="RPAYMENT"][value="Reeds betaald"]') as HTMLInputElement;
         if (paidRadio) {
           paidRadio.checked = true;
           // Trigger change event om de betaallink te verbergen
           calculateTotal();
-          
+
           // Toon bevestiging
           const confirmation = document.createElement('div');
           confirmation.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
           confirmation.innerHTML = '✅ Betaalstatus bijgewerkt naar "Reeds betaald"';
           document.body.appendChild(confirmation);
-          
+
           // Verwijder bevestiging na 3 seconden
           setTimeout(() => {
             document.body.removeChild(confirmation);
@@ -221,10 +231,10 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
     // Event listeners voor berekening
     adultsInput?.addEventListener('input', calculateTotal);
     childrenInput?.addEventListener('input', calculateTotal);
-    
+
     // Event listeners voor radio buttons
     const paymentRadios = document.querySelectorAll('input[name="RPAYMENT"]');
-    paymentRadios.forEach(radio => {
+    paymentRadios.forEach((radio) => {
       radio.addEventListener('change', calculateTotal);
     });
 
@@ -232,15 +242,15 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
     calculateTotal();
 
     // Form validatie bij submit
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       const paymentStatus = getPaymentStatus();
       const total = totalInput?.value;
-      
+
       if (total && total !== '€0.00' && paymentStatus === 'Nog niet betaald') {
         const confirmed = confirm(
           `Je hebt aangegeven nog niet te hebben betaald voor een bedrag van ${total}. ` +
-          `Weet je zeker dat je het formulier wilt versturen? ` +
-          `Je kunt nog steeds betalen via de ING-link hierboven.`
+            `Weet je zeker dat je het formulier wilt versturen? ` +
+            `Je kunt nog steeds betalen via de ING-link hierboven.`
         );
         if (!confirmed) {
           e.preventDefault();
