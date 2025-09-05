@@ -112,11 +112,11 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
     const noPaymentMessage = document.getElementById('no-payment-message');
 
     // Haal betaalgegevens uit localStorage
-    console.log("Retrieving BBQ payment data...");
+    console.log('Retrieving BBQ payment data...');
     const paymentDataStr = localStorage.getItem('bbq-payment');
 
     if (paymentDataStr) {
-      console.log("Yes found something");
+      console.log('Yes found something');
       try {
         const paymentData = JSON.parse(paymentDataStr);
         const { total, adults, children, timestamp } = paymentData;
@@ -129,7 +129,7 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
         if (hoursDiff > 24) {
           // Gegevens zijn te oud, toon geen betaling
           localStorage.removeItem('bbq-payment');
-          console.log("Data to old removing");
+          console.log('Data to old removing');
           return;
         }
 
