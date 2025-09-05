@@ -30,19 +30,19 @@ const metadata = {
           text: 'Activiteiten',
           links: [
             {
-              text: 'Dodenherdenking Werkhoven',
+              text: 'Dodenherdenking Werkhoven ✅',
               href: '#dodenherdenking',
             },
             {
-              text: 'Modelvliegwedstrijden XL',
+              text: 'Modelvliegwedstrijden XL ✅',
               href: '#vliegwedstrijd',
             },
             {
-              text: 'Sanicole Airshow',
+              text: 'Sanicole Airshow ✅',
               href: '#vliegshow',
             },
             {
-              text: 'Reunie',
+              text: 'Reunie 🎉',
               href: '#reunie',
             },
           ],
@@ -58,7 +58,7 @@ const metadata = {
       ]}
       actions={[
         {
-          text: 'Schrijf je in! ✏️',
+          text: 'Aanmelden reunie! 🎉',
           href: '#inschrijven',
         },
       ]}
@@ -72,12 +72,10 @@ const metadata = {
     title="60 jaar!"
     tagline="Luchtvaartgroep Zeist"
     image={{ src: imageTop, alt: 'afbeelding scouts vliegwedstrijd' }}
-    actions={[{ variant: 'primary', text: 'Schrijf me in!', href: getPermalink('#inschrijven') }]}
+    actions={[{ variant: 'primary', text: 'Meld je aan voor de reünie!', href: getPermalink('#inschrijven') }]}
   >
     <Fragment slot="subtitle">
-      Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. In dit jubileumjaar gaan we gezellige, traditionele, fantastisch
-      nieuwe activiteiten doen en natuurlijk een reünie houden. <br /><br />Schrijf je vandaag nog in zodat we weten
-      waar je interesses liggen.<br />
+      Dit jaar bestaat Luchtvaartgroep Zeist 60 jaar. De jubileumactiviteiten zijn inmiddels achter de rug, maar het hoogtepunt staat nog te wachten: onze reünie op 4 oktober! <br /><br />Meld je nu definitief aan voor deze gezellige middag en avond.<br />
     </Fragment>
 
     <Fragment slot="bg">
@@ -112,15 +110,7 @@ const metadata = {
         description:
           'Parkeren kan langs de weg ter hoogte van kasteel Beverweerd. We verzamelen om 19:30 aan het begin van <a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/2G7CDTqMpb6orhp58">"De Laan" (onverhard)</a> die leidt naar het monument. 19:45 lopen we dan gezamelijk en in stilte de laatste 300 meter naar het monument.',
         icon: 'tabler:map-pin',
-      },
-      {
-        title: 'Chauffeur gezocht',
-        description:
-          'We zoeken nog iemand die zware spullen naar de plek van bestemming kan brengen (gasfles, brander, grote pan en chocomel enz). Interesse graag kenbaar maken via ' +
-          metadata.mail +
-          '.',
-        icon: 'tabler:help',
-      },
+      }
     ]}
     image={{
       src: imageHerdenking,
@@ -135,6 +125,7 @@ const metadata = {
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         4 mei 2025<br /><span class="text-2xl">Dodenherdenking Werkhoven</span>
+        <span class="text-lg text-green-600 font-medium block mt-2">✅ Afgerond</span>
       </h3>
     </Fragment>
 
@@ -186,10 +177,10 @@ const metadata = {
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         12 juli 2025<br /><span class="text-2xl">Modelvliegwedstrijden XL</span>
+        <span class="text-lg text-green-600 font-medium block mt-2">✅ Afgerond</span>
       </h3>
       <div>
-        Heb je als oud-lid nog een vliegtuig liggen of heb je zin om er weer een te bouwen? Doe mee of kom gezellig
-        langs!
+        Deze activiteit heeft inmiddels plaatsgevonden en was een groot succes!
       </div>
     </Fragment>
 
@@ -233,10 +224,10 @@ const metadata = {
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         13 & 14 september 2025<br /><span class="text-2xl">International Sanicole Airshow</span>
+        <span class="text-lg text-green-600 font-medium block mt-2">✅ Inschrijven gesloten</span>
       </h3>
       <div>
-        Omdat er al enkele jaren geen vliegshow in Nederland wordt georganiseerd, gaan we dit jaar naar Sanicole in
-        België.
+        De aanmelding is inmiddels gesloten
       </div>
     </Fragment>
 
@@ -247,10 +238,45 @@ const metadata = {
 
   <Content
     id="reunie"
-    items={[]}
+    items={[
+      {
+        title: 'Locatie',
+        description:
+          '<a class="text-blue-600 underline dark:text-muted" href="https://maps.app.goo.gl/jrQQuuDper3YYS5R6">Pieter Dekker Groepshuis</a> <br>Padvinderslaan 10, 3708 BS, Zeist',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Parkeren',
+        description:
+          'Er zijn niet voldoende parkeerplaatsen beschikbaar bij het laantje. Wil je in de straten voor de Boskant parkeren en niet in de Boskant zelf. <br>Voor mensen die die invalidenparkeerplaats nodig hebben: laat ons dit graag vooraf weten via jubileum@luchtvaartgroep.nl, zodat we hier rekening mee kunnen houden. De invalidenparkeerplaatsen bevinden zich bij de hoofdingang van het terrein en worden duidelijk aangegeven.',
+        icon: 'tabler:car',
+      },
+      {
+        title: '📸 Foto\'s uit de oude doos',
+        description:
+          'Heb je nog leuke foto\'s uit jouw tijd bij de Luchtvaartgroep Zeist? Neem ze vooral mee! We maken een mooie plek waar we deze herinneringen tentoonstellen – het brengt zeker mooie verhalen en herinneringen naar boven.',
+        icon: 'tabler:camera',
+      },
+      {
+        title: 'BBQ',
+        description:
+          'We sluiten de dag af met een gezellige barbecue!',
+        icon: 'tabler:grill',
+      },
+      {
+        title: 'Kosten',
+        description: `Volwassenen: €25 pp<br>Kinderen: €12,50 pp<br><br>Dit is inclusief twee drankbonnetjes. Daarna zijn consumpties verkrijgbaar aan de bar tegen een kleine vergoeding. <br><br>Betalen graag vooraf!`,
+        icon: 'tabler:cash',
+      },
+    ]}
     image={{
       src: imageReunie,
       alt: 'Reunie',
+    }}
+    callToAction={{
+      text: 'Aanmelden vóór 17 september',
+      icon: 'tabler:chevron-right',
+      href: '#inschrijven',
     }}
   >
     <Fragment slot="content">
@@ -258,12 +284,8 @@ const metadata = {
         4 oktober 2025<br /><span class="text-2xl">Reünie</span>
       </h3>
       <div>
-        Net als 10 jaar geleden organiseren we ook dit jaar een reünie! Deze zal op zaterdag 4 oktober 2025
-        plaatsvinden. En, wat is een reünie zonder (oud)leden & (oud)bestuursleden? Het lijkt ons daarom erg leuk, om
-        iedereen weer te zien en te spreken. Noteer deze datum alvast in je agenda, en hopelijk kun je erbij zijn. We
-        zijn druk bezig met de organisatie van de reünie, meer details volgen later. Schrijf jezelf in elk geval alvast <a
-          href="#inschrijven">hieronder</a
-        > in zodat we je op de hoogte kunnen houden.
+        <p class="mb-4">Het is zover! Op 4 oktober as. organiseren we met veel plezier een gezellige reünie van Luchtvaartgroep Zeist, en we hopen van harte dat jij erbij bent! Een mooie gelegenheid om elkaar weer te ontmoeten, herinneringen op te halen en samen te genieten van een leuke middag en avond.</p>
+        <p class="mb-4">Graag ontvangen we je aanmelding uiterlijk op <strong>17 september 2025</strong>, zodat we alles goed kunnen organiseren.</p>
       </div>
     </Fragment>
 
@@ -319,8 +341,8 @@ const metadata = {
   <Inschrijven
     id="inschrijven"
     actionUrl="https://luchtvaartgroepzeist.us15.list-manage.com/subscribe/post?u=db5d91e69bd533f2922009486&id=26d45d657d&f_id=00caa6e1f0"
-    title="Schrijf je hier in! ✏️"
-    subtitle="Je voorkeuren zijn later nog wijzigbaar. Het helpt ons enorm om te weten welke activiteiten je interesse hebben."
+    title="Meld je definitief aan voor de reünie! 🎉"
+    subtitle="De aanmelding sluit op 17 september 2025. We hebben je definitieve keuze nodig voor een goede organisatie."
     inputs={[
       {
         type: 'email',
@@ -348,52 +370,48 @@ const metadata = {
       },
       {
         type: 'radio',
-        name: 'HERDENKING',
-        label: 'Herdenking (4 mei)',
+        name: 'RDEF',
+        label: 'Kom je naar de reünie (4 oktober 2025)?',
         required: true,
         radioOptions: [
-          'Geen interesse',
-          'Ik weet het nog niet, hou me op de hoogte',
-          'Ik kom + eten om 17:00',
-          'Ik kom',
+          'Ja',
+          'Nee'
         ],
       },
       {
+        type: 'number',
+        name: 'RADULTS',
+        label: 'Aantal volwassenen (inclusief jezelf)',
+        value: 1,
+        required: false,
+      },
+      {
+        type: 'number',
+        name: 'RCHILDREN',
+        label: 'Aantal kinderen',
+        value: 0,
+        required: false,
+      },
+      {
         type: 'radio',
-        name: 'WEDSTRIJD',
-        label: 'Modelvliegwedstrijden XL (12 juli)',
-        required: true,
+        name: 'RPARKING',
+        label: 'Heb je een gehandicaptenparkeerplaats nodig?',
+        required: false,
+        defaultValue: 'Nee',
         radioOptions: [
-          'Geen interesse',
-          'Ik weet het nog niet, hou me op de hoogte',
-          'Ik kom kijken',
-          'Ik doe mee met eigen vliegtuig',
-          'Ik doe mee + ontvang graag een bouwpakket (10 euro)',
+          'Ja',
+          'Nee',
         ],
-      },
-      {
-        type: 'radio',
-        name: 'VLIEGSHOW',
-        label: 'Vliegshow Sanicol (13 & 14 september)',
-        required: true,
-        radioOptions: ['Geen interesse', 'Ik weet het nog niet, hou me op de hoogte', 'Ik ga mee'],
-      },
-      {
-        type: 'radio',
-        name: 'REUNIE',
-        label: 'Reünie (4 oktober)',
-        required: true,
-        radioOptions: ['Geen interesse', 'Ik weet het nog niet, hou me op de hoogte', 'Ik kom'],
       },
     ]}
-    button="Schrijf me nu in!"
+    button="Aanmelden voor reünie!"
     textarea={{
-      name: 'OPMERKING',
+      name: 'ROPM',
       placeholder:
-        'Optioneel: bv. je komt met meerdere gezinsleden, je zit met vragen of je wilt gewoon iets vertellen',
+        'Bijzondere wensen, vragen over de BBQ betaling, of andere opmerkingen',
       label: 'Opmerkingen',
     }}
-    description="We sturen direct een (automatische!) bevestiging op het opgegeven e-mail adres. Opmerkingen bekijken we zeker, maar dit kan iets meer tijd kosten."
+    description="We sturen direct een bevestiging. Voor BBQ betaling ontvang je aparte instructies. Aanmelden kan tot 17 september 2025."
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-dark dark:bg-transparent"></div>
