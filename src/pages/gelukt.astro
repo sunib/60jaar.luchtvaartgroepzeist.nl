@@ -91,7 +91,7 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
 
           <div id="no-payment-message" class="text-center text-gray-600 dark:text-gray-400">
             <p>
-              Geen betalingsgegevens gevonden. Mogelijk heb je geen BBQ deelname opgegeven of is de gegevens verlopen.
+              Geen betalingsgegevens gevonden. Mogelijk heb je geen BBQ deelname opgegeven of zijn de gegevens verlopen.
             </p>
           </div>
         </div>
@@ -112,9 +112,11 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
     const noPaymentMessage = document.getElementById('no-payment-message');
 
     // Haal betaalgegevens uit localStorage
+    console.log("Retrieving BBQ payment data...");
     const paymentDataStr = localStorage.getItem('bbq-payment');
 
     if (paymentDataStr) {
+      console.log("Yes found something");
       try {
         const paymentData = JSON.parse(paymentDataStr);
         const { total, adults, children, timestamp } = paymentData;
@@ -127,6 +129,7 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
         if (hoursDiff > 24) {
           // Gegevens zijn te oud, toon geen betaling
           localStorage.removeItem('bbq-payment');
+          console.log("Data to old removing");
           return;
         }
 
@@ -147,16 +150,10 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
                       <span>Volwassenen (${adults}x €25.00):</span>
                       <span>€${(adults * 25).toFixed(2)}</span>
                     </div>
-                    ${
-                      children > 0
-                        ? `
                     <div class="flex justify-between mb-2">
                       <span>Kinderen (${children}x €12.50):</span>
                       <span>€${(children * 12.5).toFixed(2)}</span>
                     </div>
-                    `
-                        : ''
-                    }
                     <hr class="my-2 border-gray-300 dark:border-gray-600">
                     <div class="flex justify-between font-bold text-lg">
                       <span>Totaalbedrag:</span>

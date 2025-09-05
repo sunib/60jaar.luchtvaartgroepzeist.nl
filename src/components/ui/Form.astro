@@ -124,6 +124,7 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    console.log("Calculating BBQ total...");
     const form = document.getElementById('bbq-form') as HTMLFormElement;
     if (!form) return;
 
@@ -156,6 +157,7 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
 
     // Form submit - sla bedrag op in localStorage
     form.addEventListener('submit', function (_) {
+      console.log("Storing BBQ total...");
       const total = calculateTotal();
       const adults = parseInt(adultsInput?.value || '0');
       const children = parseInt(childrenInput?.value || '0');
