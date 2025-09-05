@@ -9,7 +9,7 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', radioOptions, required }) =>
+        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', radioOptions, required, value, defaultValue }) =>
           name && (
             <div class="mb-6">
               {radioOptions ? (
@@ -25,6 +25,7 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
                             name={name}
                             value={v}
                             required={required}
+                            checked={defaultValue && v === defaultValue}
                             class="cursor-pointer mr-2 rounded border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 focus:ring-blue-500"
                           />
                           {v}
@@ -45,6 +46,7 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
                     autocomplete={autocomplete}
                     placeholder={placeholder}
                     required={required}
+                    value={value}
                     class="valid:focus:bg-lime-50 :bg-red-400 [&:user-invalid]:border-red-400 py-3 px-4 block w-full text-md rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                   />
                 </div>
