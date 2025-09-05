@@ -26,13 +26,19 @@ export interface ImageProps extends Omit<HTMLAttributes<'img'>, 'src'> {
   format?: string;
 }
 
+export interface OptimizedImageResult {
+  src: string;
+  width: number;
+  height?: number;
+}
+
 export type ImagesOptimizer = (
   image: ImageMetadata | string,
   breakpoints: number[],
   width?: number,
   height?: number,
   format?: string
-) => Promise<Array<{ src: string; width: number }>>;
+) => Promise<Array<OptimizedImageResult>>;
 
 /* ******* */
 const config = {
