@@ -106,6 +106,8 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
 </Layout>
 
 <script>
+  import type { PaymentData } from '~/types';
+
   document.addEventListener('DOMContentLoaded', function () {
     const paymentContainer = document.getElementById('payment-container');
     const paymentDetails = document.getElementById('payment-details');
@@ -118,13 +120,13 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
     if (paymentDataStr) {
       console.log('Yes found something');
       try {
-        const paymentData = JSON.parse(paymentDataStr);
-        const { total, adults, children, timestamp } = paymentData;
+        const paymentData: PaymentData = JSON.parse(paymentDataStr);
 
         // Check of de gegevens niet te oud zijn (bijv. 24 uur)
         const now = new Date();
-        const paymentTime = new Date(timestamp);
+        const paymentTime = new Date(paymentData.timestamp);
         const hoursDiff = (now.getTime() - paymentTime.getTime()) / (1000 * 3600);
+        const tarrifKids = paymentData.isLid ? 0.0 : 12.5; // Assuming isLid is a boolean
 
         if (hoursDiff > 24) {
           // Gegevens zijn te oud, toon geen betaling
@@ -133,7 +135,7 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
           return;
         }
 
-        if (total > 0) {
+        if (paymentData.total > 0) {
           // Toon betaling sectie
           paymentContainer?.classList.remove('hidden');
           noPaymentMessage?.classList.add('hidden');
@@ -147,24 +149,37 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
                 <div class="text-center">
                   <div class="text-sm text-gray-700 dark:text-gray-300 mb-2">
                     <div class="flex justify-between mb-1">
-                      <span>Volwassenen (${adults}x €25.00):</span>
-                      <span>€${(adults * 25).toFixed(2)}</span>
+                      <span>Volwassenen (${paymentData.adults}x €25.00):</span>
+                      <span>€${(paymentData.adults * 25).toFixed(2)}</span>
                     </div>
                     <div class="flex justify-between mb-2">
-                      <span>Kinderen (${children}x €12.50):</span>
-                      <span>€${(children * 12.5).toFixed(2)}</span>
+                      <span>Kinderen (${paymentData.children}x €${tarrifKids.toFixed(2)}):</span>
+                      <span>€${(paymentData.children * tarrifKids).toFixed(2)}</span>
                     </div>
                     <hr class="my-2 border-gray-300 dark:border-gray-600">
                     <div class="flex justify-between font-bold text-lg">
                       <span>Totaalbedrag:</span>
-                      <span class="text-blue-600 dark:text-blue-400">€${total.toFixed(2)}</span>
+                      <span class="text-blue-600 dark:text-blue-400">€${paymentData.total.toFixed(2)} ${paymentData.manualOverride ? '(handmatig aangepast)' : ''}</span>
                     </div>
                   </div>
                 </div>
                 
                 <div class="text-sm text-gray-600 dark:text-gray-400 text-center mb-4">
-                  Let op: je vult ZELF het totaal bedrag (€${total.toFixed(2)}) in bij de iDEAL betaling! 
+                  Let op: je vult ZELF het totaal bedrag (€${paymentData.total.toFixed(2)}) in bij de iDEAL betaling!
                 </div>
+                
+                ${
+                  paymentData.isLid
+                    ? `
+                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded p-3 mb-4">
+                  <div class="text-sm text-green-700 dark:text-green-300">
+                    <div class="font-medium mb-1">🎉 Gratis voor kinderen</div>
+                    <div class="text-xs">Omdat één of meer van je kinderen actief lid is van de Luchtvaartgroep Zeist, is de deelname voor alle kinderen gratis!</div>
+                  </div>
+                </div>
+                `
+                    : ''
+                }
                 
                 <div class="space-y-3">
                   <a href="${ingUrl}" target="_blank" id="payment-button"
@@ -172,7 +187,7 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                     </svg>
-                    Betaal €${total.toFixed(2)} via iDEAL
+                    Betaal €${paymentData.total.toFixed(2)} via iDEAL
                   </a>
                   
                   <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded p-3">
@@ -181,7 +196,7 @@ const mail = '<a data-obfuscation href="mailto:60jaar@luchtvaartgroepzeist.nl">6
                       <div class="space-y-1 text-xs">
                         <div><strong>IBAN:</strong> NL92 INGB 0002 0715 45</div>
                         <div><strong>Ten name van:</strong> Scouting Luchtvaartgroep Zeist</div>
-                        <div><strong>Bedrag:</strong> €${total.toFixed(2)}</div>
+                        <div><strong>Bedrag:</strong> €${paymentData.total.toFixed(2)}</div>
                         <div><strong>Omschrijving:</strong> Reunie Luchtvaartgroep Zeist + je naam</div>
                       </div>
                     </div>

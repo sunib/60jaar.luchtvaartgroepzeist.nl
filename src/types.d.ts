@@ -294,3 +294,12 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Inschrijven extends Omit<Headline, 'classes'>, Form, Widget {}
+
+export interface PaymentData {
+  total: number;
+  adults: number;
+  children: number;
+  isLid: boolean;
+  manualOverride?: boolean;
+  timestamp: string;
+}

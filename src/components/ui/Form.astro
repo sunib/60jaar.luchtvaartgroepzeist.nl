@@ -123,6 +123,8 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
 </form>
 
 <script>
+  import type { PaymentData } from '~/types';
+
   document.addEventListener('DOMContentLoaded', function () {
     console.log('Calculating BBQ total...');
     const form = document.getElementById('bbq-form') as HTMLFormElement;
@@ -136,21 +138,41 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
     const ADULT_PRICE = 25;
     const CHILD_PRICE = 12.5;
 
+    let isManualOverride = false;
+    let calculatedTotal = 0;
+
     function calculateTotal() {
       const adults = parseInt(adultsInput?.value || '0');
       const children = parseInt(childrenInput?.value || '0');
-      const total = adults * ADULT_PRICE + children * CHILD_PRICE;
+      const checkedLid = document.querySelector('input[name="RLID"]:checked') as HTMLInputElement | null;
+      const isLid = checkedLid?.value === 'Ja';
+      const childPrice = isLid ? 0 : CHILD_PRICE;
+      calculatedTotal = adults * ADULT_PRICE + children * childPrice;
 
+      // Always update the field when calculation changes, resetting manual override
       if (totalInput) {
-        totalInput.value = `€${total.toFixed(2)}`;
+        totalInput.value = `€${calculatedTotal.toFixed(2)}`;
       }
+      isManualOverride = false;
 
-      return total;
+      return calculatedTotal;
     }
+
+    // Detect manual override
+    totalInput?.addEventListener('input', function () {
+      const value = totalInput.value.replace('€', '').trim();
+      const numValue = parseFloat(value) || 0;
+      if (Math.abs(numValue - calculatedTotal) > 0.01) {
+        isManualOverride = true;
+      }
+    });
 
     // Event listeners voor berekening
     adultsInput?.addEventListener('input', calculateTotal);
     childrenInput?.addEventListener('input', calculateTotal);
+    document.querySelectorAll('input[name="RLID"]').forEach((radio) => {
+      radio.addEventListener('change', calculateTotal);
+    });
 
     // Initiële berekening
     calculateTotal();
@@ -158,16 +180,23 @@ const { actionUrl, inputs, textarea, disclaimer, button, description = '' } = As
     // Form submit - sla bedrag op in localStorage
     form.addEventListener('submit', function (_) {
       console.log('Storing BBQ total...');
-      const total = calculateTotal();
+
+      // Use the actual value from the input field, whether calculated or manually adjusted
+      const totalValue = totalInput.value.replace('€', '').trim();
+      const total = parseFloat(totalValue) || 0;
       const adults = parseInt(adultsInput?.value || '0');
       const children = parseInt(childrenInput?.value || '0');
+      const checkedLid = document.querySelector('input[name="RLID"]:checked') as HTMLInputElement | null;
+      const isLid = checkedLid?.value === 'Ja';
 
       // Sla bedraggegevens op in localStorage
       if (total > 0) {
-        const paymentData = {
+        const paymentData: PaymentData = {
           total: total,
           adults: adults,
           children: children,
+          isLid: isLid,
+          manualOverride: isManualOverride,
           timestamp: new Date().toISOString(),
         };
         localStorage.setItem('bbq-payment', JSON.stringify(paymentData));

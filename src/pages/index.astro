@@ -390,12 +390,20 @@ const metadata = {
         required: true,
       },
       {
+        type: 'radio',
+        name: 'RLID',
+        label: 'Is 1 of meer van deze kinderen actief lid?',
+        required: true,
+        defaultValue: 'Nee',
+        radioOptions: ['Ja', 'Nee'],
+      },
+      {
         type: 'text',
         name: 'RPAY',
         label: 'Totaalbedrag BBQ (wordt automatisch berekend)',
         defaultValue: '€0.00',
         required: true,
-        readonly: true,
+        readonly: false,
         isCalculated: true,
       },
       {
